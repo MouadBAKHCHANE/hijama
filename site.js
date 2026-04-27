@@ -18,15 +18,12 @@
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
-    // Hero video autoplay retry (some browsers block autoplay until interaction)
+    // Hero video autoplay retry — kept for backward compatibility if a <video class="hero-video"> is reintroduced
     const heroVideo = document.querySelector(".hero-video");
     if (heroVideo) {
       const tryPlay = () => heroVideo.play().catch(() => {});
       tryPlay();
       heroVideo.addEventListener("loadeddata", tryPlay);
-      ["click", "touchstart", "scroll", "keydown"].forEach(evt => {
-        window.addEventListener(evt, tryPlay, { once: true, passive: true });
-      });
     }
 
     // Mobile drawer

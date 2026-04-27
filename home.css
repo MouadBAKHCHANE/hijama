@@ -601,11 +601,28 @@
   color: #fff;
   display: block;
 }
-.hero-video {
+.hero-video,
+.hero-bg {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
   z-index: 0;
+  /* GPU compositing: prevent paint glitches during scroll */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  filter: saturate(0.95);
+}
+.hero-bg {
+  /* Subtle Ken Burns zoom — replaces the video for stable, glitch-free playback */
+  animation: heroKenBurns 18s ease-in-out infinite alternate;
+}
+@keyframes heroKenBurns {
+  from { transform: translateZ(0) scale(1); }
+  to   { transform: translateZ(0) scale(1.06); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg { animation: none; }
 }
 .hero-overlay {
   position: absolute; inset: 0;
