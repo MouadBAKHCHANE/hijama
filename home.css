@@ -3337,8 +3337,10 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .page-head { padding: 40px 0 24px; }
   .page-head .display { font-size: clamp(36px, 9vw, 56px) !important; }
 
-  /* Drawer text smaller */
-  .drawer .drawer-links a { font-size: 28px; padding: 18px 0; }
+  /* Drawer text smaller on small mobile */
+  .drawer .drawer-links a { font-size: 22px; padding: 14px 0; }
+  .drawer .drawer-links .drawer-sub a { font-size: 12.5px; padding: 7px 0 7px 12px; }
+  .drawer { padding: 84px 22px 32px; }
 
   /* About hero (creative) — make image visible above text */
   .about-creative { padding-top: 8px; }
@@ -3352,6 +3354,11 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .hero-facts .fact { border-right: 0; }
   .footer-meta-item { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
   .footer-meta-item .l { margin-bottom: 4px; }
+  .drawer { padding: 80px 18px 28px; }
+  .drawer .drawer-links a { font-size: 20px; padding: 12px 0; }
+  .drawer .drawer-links .drawer-sub { padding-left: 12px; }
+  .drawer .drawer-links .drawer-sub a { font-size: 12px; padding: 6px 0 6px 10px; }
+  .drawer-cta { font-size: 11px; padding: 12px 18px; }
 }
 
 /* ---------- Drawer enhancements ---------- */
@@ -3611,26 +3618,38 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 }
 
 /* ============== Drawer sub-menu (mobile) ============== */
-.drawer-sub {
+/* Higher specificity to beat .drawer .drawer-links a (36px serif, flex space-between) */
+.drawer .drawer-links .drawer-sub {
   display: flex;
   flex-direction: column;
-  padding: 6px 0 14px 28px;
+  padding: 4px 0 10px 18px;
+  margin-bottom: 4px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  gap: 0;
 }
-.drawer-sub a {
+.drawer .drawer-links .drawer-sub a {
   display: block;
-  padding: 10px 0 10px 12px;
+  padding: 8px 0 8px 12px;
   font-family: var(--sans);
-  font-size: 14px;
+  font-size: 13px;
+  font-weight: 400;
   color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
   letter-spacing: -0.005em;
+  border: 0;
   border-left: 2px solid transparent;
+  border-bottom: 0;
+  justify-content: flex-start;
+  align-items: center;
   transition: color 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease;
 }
-.drawer-sub a::before { content: "— "; opacity: 0.5; }
-.drawer-sub a:hover,
-.drawer-sub a.active {
+.drawer .drawer-links .drawer-sub a::before {
+  content: "— ";
+  opacity: 0.5;
+  margin-right: 2px;
+}
+.drawer .drawer-links .drawer-sub a:hover,
+.drawer .drawer-links .drawer-sub a.active {
   color: #fff;
   border-left-color: var(--sand);
   padding-left: 16px;

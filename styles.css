@@ -376,8 +376,8 @@ section:first-of-type { border-top: none; }
 }
 .drawer .drawer-links a {
   font-family: var(--serif);
-  font-size: 36px;
-  padding: 24px 0;
+  font-size: 26px;
+  padding: 16px 0;
   border-bottom: 1px solid var(--line);
   display: flex; justify-content: space-between; align-items: baseline;
 }
