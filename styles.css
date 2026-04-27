@@ -395,7 +395,7 @@ section:first-of-type { border-top: none; }
   color: rgba(255, 255, 255, 0.6);              /* gray font color */
   font-weight: 400;
 }
-.drawer .drawer-links a:hover { color: #fff; background: rgba(255,255,255,0.04); }
+.drawer .drawer-links a:hover { color: #fff; background: transparent; }
 .drawer .drawer-links a .num { color: var(--sand); }
 
 /* Drawer CTA (Prendre rendez-vous) */

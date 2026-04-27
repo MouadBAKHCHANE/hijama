@@ -125,6 +125,31 @@
       });
     }
 
+    // Floating RDV button — visible after scrolling past the header
+    if (!document.querySelector('.rdv-fab')) {
+      const fabHtml = `
+<button type="button" class="rdv-fab" aria-label="Prendre rendez-vous" data-rdv-open>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+    <line x1="16" y1="2" x2="16" y2="6"/>
+    <line x1="8" y1="2" x2="8" y2="6"/>
+    <line x1="3" y1="10" x2="21" y2="10"/>
+    <path d="M12 14l2 2 4-4"/>
+  </svg>
+  <span class="rdv-fab-label">Prendre rendez-vous</span>
+</button>`;
+      document.body.insertAdjacentHTML('beforeend', fabHtml);
+    }
+    const fab = document.querySelector('.rdv-fab');
+    if (fab) {
+      const updateFab = () => {
+        const shown = window.scrollY > 200;
+        fab.classList.toggle('is-visible', shown);
+      };
+      updateFab();
+      window.addEventListener('scroll', updateFab, { passive: true });
+    }
+
     // RDV booking popup modal — auto-inject if not present on the page
     if (!document.querySelector('.rdv-modal')) {
       const html = `

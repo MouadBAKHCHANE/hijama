@@ -1273,7 +1273,9 @@
 
 /* ===== RDV MODAL — popup booking form ===== */
 .rdv-modal {
-  position: fixed; inset: 0;
+  position: fixed;
+  /* Start below the sticky header so the nav stays visible */
+  top: 80px; left: 0; right: 0; bottom: 0;
   z-index: 1000;
   display: flex; align-items: center; justify-content: center;
   padding: 24px;
@@ -1281,6 +1283,9 @@
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
+@media (max-width: 1024px) { .rdv-modal { top: 64px; } }
+/* Promote header above the modal so it stays interactive */
+body.rdv-locked .nav { z-index: 1100; box-shadow: 0 1px 0 var(--line); }
 .rdv-modal.is-open {
   opacity: 1;
   visibility: visible;
@@ -1484,6 +1489,75 @@ a.rdv-meta-item:hover .v { color: var(--accent); }
 
 /* Lock body scroll when modal open */
 body.rdv-locked { overflow: hidden; }
+
+/* ===== Floating RDV button (FAB) — visible after scrolling past hero ===== */
+.rdv-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  padding: 14px 16px;
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(145, 20, 57, 0.32), 0 2px 6px rgba(7, 7, 7, 0.12);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.92);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(.7,0,.3,1), visibility 0s linear 0.35s, gap 0.25s ease, padding 0.25s ease, background 0.25s ease;
+}
+.rdv-fab.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(.7,0,.3,1), visibility 0s linear 0s, gap 0.25s ease, padding 0.25s ease, background 0.25s ease;
+}
+/* Hide the FAB when modal or drawer is open */
+body.rdv-locked .rdv-fab,
+.drawer.open ~ .rdv-fab,
+body:has(.drawer.open) .rdv-fab {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.rdv-fab svg { flex-shrink: 0; }
+.rdv-fab-label {
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.35s cubic-bezier(.7,0,.3,1), margin 0.35s ease, opacity 0.25s ease;
+  opacity: 0;
+}
+.rdv-fab:hover {
+  background: var(--accent-2);
+  gap: 10px;
+  padding-right: 22px;
+}
+.rdv-fab:hover .rdv-fab-label {
+  max-width: 220px;
+  opacity: 1;
+}
+@media (max-width: 540px) {
+  .rdv-fab {
+    bottom: 16px;
+    right: 16px;
+    padding: 12px 14px;
+  }
+  /* Always-collapsed pill on small mobile (icon only, opens modal on tap) */
+  .rdv-fab .rdv-fab-label { display: none; }
+}
 
 /* About intro paragraph (replaces the tenet cards) */
 .about-intro-text {
@@ -2974,8 +3048,8 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 
 /* ---------- Drawer fix: ensure menu items are scrollable + close button visible ---------- */
 .drawer { padding-top: 96px; }
-.drawer .drawer-links a { transition: background 0.25s ease, padding-left 0.25s ease; }
-.drawer .drawer-links a:hover { background: var(--cream); padding-left: 12px; }
+.drawer .drawer-links a { transition: color 0.25s ease, padding-left 0.25s ease; }
+.drawer .drawer-links a:hover { background: transparent; padding-left: 12px; }
 
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
