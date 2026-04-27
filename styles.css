@@ -23,12 +23,15 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html, body {
-  /* Prevent any element from causing horizontal page scroll on mobile/tablet */
-  overflow-x: hidden;
-  max-width: 100vw;
-}
 html { scroll-behavior: smooth; }
+/* Prevent horizontal page scroll on mobile/tablet only — desktop must keep
+   the html viewport as the sticky scrollport so .benefits-stage can pin. */
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+}
 
 body {
   font-family: var(--sans);
