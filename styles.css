@@ -416,7 +416,7 @@ section:first-of-type { border-top: none; }
   color: var(--ink);
   border: 0;
   text-decoration: none;
-  align-self: flex-start;
+  align-self: center;
   transition: background 0.25s ease, color 0.25s ease, gap 0.25s ease;
 }
 .drawer-cta:hover { background: var(--accent); color: #fff; gap: 14px; }
@@ -428,6 +428,7 @@ section:first-of-type { border-top: none; }
   margin-top: 28px;
   padding-top: 0;
   display: flex; gap: 12px; flex-wrap: wrap;
+  justify-content: center;
 }
 .drawer-social a {
   display: inline-flex; align-items: center; justify-content: center;
