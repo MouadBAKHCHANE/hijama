@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable — Hijama Therapy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: linear-gradient(180deg, var(--bg-2) 0%, var(--bg-3) 100%); }
+  .nf {
+    text-align: center; max-width: 520px; padding: 40px 24px;
+  }
+  .nf-eyebrow {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 18px; display: block;
+  }
+  .nf-title {
+    font-family: var(--serif);
+    font-size: clamp(48px, 9vw, 96px);
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .nf-title em { color: var(--accent); font-style: italic; }
+  .nf-lead {
+    font-size: 16px; line-height: 1.6;
+    color: var(--ink-2);
+    margin-bottom: 32px;
+  }
+  .nf-actions {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+  }
+</style>
+</head>
+<body>
+  <div class="nf">
+    <span class="nf-eyebrow">— Erreur 404</span>
+    <h1 class="nf-title">Page <em>introuvable.</em></h1>
+    <p class="nf-lead">La page que vous cherchez n'existe pas ou a été déplacée. Reprenez votre navigation depuis l'accueil.</p>
+    <div class="nf-actions">
+      <a href="/" class="btn"><span>Retour à l'accueil</span><span class="arrow"></span></a>
+      <a href="/contact.html" class="btn ghost"><span>Contact</span></a>
+    </div>
+  </div>
+</body>
+</html>
