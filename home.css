@@ -3536,3 +3536,690 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .conditions-grid { grid-template-columns: 1fr; }
   .conditions-callout { padding: 22px 20px; }
 }
+
+/* ============== Nav dropdown (Thérapie) ============== */
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+.nav-dropdown-caret {
+  font-size: 10px;
+  transition: transform 0.25s ease;
+  display: inline-block;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+.nav-dropdown:hover .nav-dropdown-caret,
+.nav-dropdown.is-open .nav-dropdown-caret {
+  transform: rotate(180deg);
+}
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, 8px);
+  min-width: 280px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 56px rgba(7,7,7,0.12);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0s linear 0.22s;
+  z-index: 1100;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+  transition-delay: 0s;
+}
+.nav-dropdown-menu a {
+  display: block;
+  padding: 12px 16px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink);
+  text-decoration: none;
+  border-left: 2px solid transparent;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+}
+.nav-dropdown-menu a:hover {
+  background: var(--bg-3);
+  border-left-color: var(--accent);
+  color: var(--accent);
+  padding-left: 20px;
+}
+.nav-dropdown-menu a.active {
+  border-left-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ============== Drawer sub-menu (mobile) ============== */
+.drawer-sub {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0 14px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.drawer-sub a {
+  display: block;
+  padding: 10px 0 10px 12px;
+  font-family: var(--sans);
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  letter-spacing: -0.005em;
+  border-left: 2px solid transparent;
+  transition: color 0.2s ease, border-color 0.2s ease, padding-left 0.2s ease;
+}
+.drawer-sub a::before { content: "— "; opacity: 0.5; }
+.drawer-sub a:hover,
+.drawer-sub a.active {
+  color: #fff;
+  border-left-color: var(--sand);
+  padding-left: 16px;
+}
+
+/* ============== Footer 4-col layout ============== */
+.footer-grid { grid-template-columns: 1.2fr 0.7fr 0.9fr 1.0fr; }
+@media (max-width: 1100px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 540px)  { .footer-grid { grid-template-columns: 1fr; } }
+
+/* ============== Therapie pages — shared styles ============== */
+.therapie-hero {
+  padding: 32px 0 56px;
+  border-bottom: 1px solid var(--line);
+}
+.therapie-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+.therapie-hero-copy { display: flex; flex-direction: column; gap: 16px; }
+.therapie-hero-copy .section-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+.therapie-hero-copy .section-title em { color: var(--accent); font-style: italic; }
+.therapie-lead {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 56ch;
+  margin: 0;
+}
+.therapie-hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.therapie-hero-stats > div {
+  display: flex;
+  flex-direction: column;
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+}
+.therapie-hero-stats .num {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1.05;
+}
+.therapie-hero-stats .lbl {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.therapie-hero-img {
+  margin: 0;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: var(--bg-3);
+}
+.therapie-hero-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.therapie-section {
+  padding: 64px 0 96px;
+}
+.therapie-block {
+  max-width: 760px;
+  margin: 0 0 32px;
+}
+.therapie-block + .therapie-block { margin-top: 56px; }
+.therapie-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(28px, 3.5vw, 40px);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 8px 0 14px;
+}
+.therapie-title em { color: var(--accent); font-style: italic; }
+.therapie-block p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 12px;
+}
+.therapie-block p strong { color: var(--ink); font-weight: 600; }
+.therapie-block--alt { margin-top: 64px; padding-top: 48px; border-top: 1px solid var(--line); }
+
+.eyebrow--green { color: #1f7a4f; }
+.eyebrow--red { color: #b54a3a; }
+
+/* Points zones grid */
+.points-zones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 32px 0 56px;
+}
+.zone-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 24px 22px 24px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+.zone-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.zone-head {
+  display: flex; align-items: baseline; gap: 14px;
+  margin-bottom: 4px;
+}
+.zone-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+}
+.zone-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.zone-count {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.zone-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.zone-list li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  padding-left: 14px;
+  position: relative;
+}
+.zone-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.6;
+}
+.zone-list strong { color: var(--ink); font-weight: 600; }
+
+.therapie-callout {
+  background: var(--bg-3);
+  padding: 36px 32px;
+  margin-top: 56px;
+  display: flex; flex-direction: column;
+  gap: 14px;
+}
+.callout-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.therapie-callout h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.2;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+.therapie-callout h3 em { color: var(--accent); font-style: italic; }
+.therapie-callout p {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.therapie-callout p strong { color: var(--ink); font-weight: 600; }
+.therapie-callout .btn { align-self: flex-start; margin-top: 8px; }
+.therapie-callout--alert { background: #fff3ee; border-left: 3px solid #b54a3a; }
+.alert-list {
+  list-style: none;
+  padding: 0;
+  margin: 6px 0 12px;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.alert-list li {
+  position: relative;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.alert-list li::before {
+  content: "!";
+  position: absolute;
+  left: 0; top: 1px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #b54a3a;
+  color: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* Indications card grid */
+.indications-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin: 16px 0 0;
+}
+.indication-card {
+  background: var(--cream);
+  border-left: 3px solid var(--accent);
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.indication-card:hover { background: #fff; transform: translateY(-2px); }
+.indication-card h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  margin: 0 0 4px;
+}
+.indication-card ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.indication-card li {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  padding-left: 14px;
+  position: relative;
+}
+.indication-card li::before {
+  content: "›";
+  position: absolute;
+  left: 2px;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Contraindications grid */
+.contraindications-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin: 16px 0 0;
+}
+.ci-card {
+  padding: 26px 24px 26px;
+  display: flex; flex-direction: column;
+  gap: 14px;
+}
+.ci-card--absolute {
+  background: #fdebe6;
+  border-left: 3px solid #b54a3a;
+}
+.ci-card--relative {
+  background: #fef5e6;
+  border-left: 3px solid #c38a1a;
+}
+.ci-head { display: flex; flex-direction: column; gap: 6px; }
+.ci-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  background: rgba(7,7,7,0.06);
+  padding: 4px 10px;
+  border-radius: 999px;
+  color: var(--ink);
+}
+.ci-card--absolute .ci-tag { background: #b54a3a; color: #fff; }
+.ci-card--relative .ci-tag { background: #c38a1a; color: #fff; }
+.ci-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.ci-card ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.ci-card li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink);
+  padding-left: 16px;
+  position: relative;
+}
+.ci-card li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 9px;
+  width: 7px; height: 2px;
+  background: currentColor;
+  opacity: 0.5;
+}
+.ci-card strong { font-weight: 600; }
+
+/* Conseils timeline */
+.conseils-timeline {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin: 12px 0 0;
+}
+.ct-step {
+  background: var(--cream);
+  border-top: 3px solid var(--accent);
+  padding: 24px 22px 26px;
+  display: flex; flex-direction: column;
+  gap: 12px;
+}
+.ct-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.ct-step h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.ct-list {
+  list-style: none;
+  padding: 0; margin: 4px 0 0;
+  display: flex; flex-direction: column;
+  gap: 9px;
+}
+.ct-list li {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  padding-left: 18px;
+  position: relative;
+}
+.ct-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  top: 2px;
+}
+.ct-list strong { color: var(--ink); font-weight: 600; }
+
+/* Effets secondaires grid */
+.effets-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 16px 0 0;
+}
+.effet-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 22px 22px 22px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.effet-card:hover { border-color: var(--accent); }
+.effet-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--accent);
+}
+.effet-card h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink);
+  margin: 0 0 2px;
+}
+.effet-card p { font-size: 13.5px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+
+/* Frequency list */
+.freq-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 12px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.freq-list li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  padding: 14px 18px;
+  background: var(--cream);
+  border-left: 2px solid var(--accent);
+}
+.freq-list strong { color: var(--ink); font-weight: 600; }
+.freq-note {
+  font-size: 13px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Etudes cards */
+.etudes-list {
+  display: flex; flex-direction: column;
+  gap: 18px;
+  margin: 24px 0 56px;
+}
+.etude-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  padding: 26px 28px 26px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.25s ease, background 0.25s ease;
+}
+.etude-card:hover { border-color: var(--accent); background: #fff; }
+.etude-meta {
+  display: flex; gap: 14px; align-items: baseline;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  flex-wrap: wrap;
+}
+.etude-year {
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.16em;
+}
+.etude-journal { color: var(--muted); }
+.etude-card h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.etude-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin: 0;
+}
+.etude-card p strong { color: var(--ink); font-weight: 600; }
+.etude-doi { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+.etude-tags {
+  display: flex; gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.etude-tags span {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--bg-3);
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+.effets-cliniques-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 16px 0 56px;
+}
+.ec-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 22px 22px 22px;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.ec-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  color: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+}
+.ec-card h4 {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0;
+}
+.ec-card p { font-size: 13px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+
+.sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex; flex-direction: column;
+  gap: 8px;
+}
+.sources-list li {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  padding-left: 18px;
+  position: relative;
+}
+.sources-list li::before {
+  content: "↗";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 700;
+}
+.sources-list strong { color: var(--ink); font-weight: 600; }
+
+/* ============== Responsive — Therapie pages ============== */
+@media (max-width: 1024px) {
+  .therapie-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .therapie-hero-img { aspect-ratio: 16 / 11; max-height: 480px; }
+  .points-zones { grid-template-columns: 1fr; }
+  .indications-grid { grid-template-columns: 1fr 1fr; }
+  .contraindications-grid { grid-template-columns: 1fr; }
+  .conseils-timeline { grid-template-columns: 1fr; }
+  .effets-grid { grid-template-columns: 1fr 1fr; }
+  .effets-cliniques-grid { grid-template-columns: 1fr 1fr; }
+  .nav-dropdown-menu { display: none; }
+}
+@media (max-width: 720px) {
+  .therapie-hero-stats { gap: 22px; }
+  .therapie-hero-stats > div { padding-left: 12px; }
+  .therapie-hero-stats .num { font-size: 22px; }
+  .indications-grid { grid-template-columns: 1fr; }
+  .effets-grid { grid-template-columns: 1fr; }
+  .effets-cliniques-grid { grid-template-columns: 1fr; }
+  .therapie-callout { padding: 26px 22px; }
+}

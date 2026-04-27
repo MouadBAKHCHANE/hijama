@@ -31,8 +31,17 @@
     <nav class="nav-links">
       <a href="index.html">Accueil</a>
       <a href="docteur.html">Cabinets</a>
-      <a href="services.html">Spécialités</a>
-      <a href="actualites.html" class="active">Actualités</a>
+      <div class="nav-dropdown">
+        <a href="services.html" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Thérapie<span class="nav-dropdown-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-dropdown-menu" role="menu">
+          <a href="services.html" role="menuitem">Spécialités</a>
+          <a href="therapie-points.html" role="menuitem">Les points Hijama</a>
+          <a href="therapie-indications.html" role="menuitem">Indications &amp; contre-indications</a>
+          <a href="therapie-conseils.html" role="menuitem">Conseils &amp; effets secondaires</a>
+          <a href="therapie-etudes.html" role="menuitem">Études scientifiques</a>
+        </div>
+      </div>
+      <a href="actualites.html">Actualités</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-right">
@@ -46,7 +55,14 @@
   <div class="drawer-links">
     <a href="index.html"><span class="num">01</span><span>Accueil</span></a>
     <a href="docteur.html"><span class="num">02</span><span>Cabinets</span></a>
-    <a href="services.html"><span class="num">03</span><span>Spécialités</span></a>
+    <a href="services.html"><span class="num">03</span><span>Thérapie</span></a>
+    <div class="drawer-sub">
+      <a href="services.html">Spécialités</a>
+      <a href="therapie-points.html">Les points Hijama</a>
+      <a href="therapie-indications.html">Indications &amp; contre-indications</a>
+      <a href="therapie-conseils.html">Conseils &amp; effets secondaires</a>
+      <a href="therapie-etudes.html">Études scientifiques</a>
+    </div>
     <a href="actualites.html"><span class="num">04</span><span>Actualités</span></a>
     <a href="contact.html"><span class="num">05</span><span>Contact</span></a>
   </div>
@@ -264,9 +280,19 @@
         <ul class="footer-links">
           <li><a href="index.html"><span class="dot"></span>Accueil</a></li>
           <li><a href="docteur.html"><span class="dot"></span>Cabinets</a></li>
-          <li><a href="services.html"><span class="dot"></span>Spécialités</a></li>
+          <li><a href="services.html"><span class="dot"></span>Thérapie</a></li>
           <li><a href="actualites.html"><span class="dot"></span>Actualités</a></li>
           <li><a href="contact.html"><span class="dot"></span>Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Thérapie</h4>
+        <ul class="footer-links">
+          <li><a href="services.html"><span class="dot"></span>Spécialités</a></li>
+          <li><a href="therapie-points.html"><span class="dot"></span>Les points Hijama</a></li>
+          <li><a href="therapie-indications.html"><span class="dot"></span>Indications</a></li>
+          <li><a href="therapie-conseils.html"><span class="dot"></span>Conseils &amp; effets</a></li>
+          <li><a href="therapie-etudes.html"><span class="dot"></span>Études scientifiques</a></li>
         </ul>
       </div>
       <div class="footer-col">
