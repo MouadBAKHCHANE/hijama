@@ -4553,11 +4553,12 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 .drawer .drawer-links a .num,
 .drawer .drawer-links summary .num {
   order: 2;
+  flex: 0 0 auto;
 }
 .drawer .drawer-links a > span:not(.num),
 .drawer .drawer-links summary > span:not(.num):not(.drawer-caret) {
   order: 1;
-  flex: 1 1 auto;
+  flex: 0 0 auto;
 }
 
 /* Accordion summary styled like a regular drawer link */
@@ -4579,18 +4580,21 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 .drawer .drawer-links .drawer-group summary::marker { display: none; content: ""; }
 
 .drawer .drawer-links .drawer-group .drawer-caret {
-  order: 0;
+  order: 3;
+  flex: 0 0 auto;
   font-family: var(--mono);
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 300;
-  color: var(--accent);
-  width: 20px;
+  color: var(--bg-3);            /* rose bébé */
+  width: 22px;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   line-height: 1;
+  align-self: center;
 }
 .drawer .drawer-links .drawer-group[open] .drawer-caret {
-  transform: rotate(45deg);
+  transform: rotate(45deg);      /* + becomes × */
+  color: #fff;
 }
 
 /* Sub-menu reveal animation */
