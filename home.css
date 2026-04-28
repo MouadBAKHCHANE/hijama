@@ -4239,3 +4239,290 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .effets-cliniques-grid { grid-template-columns: 1fr; }
   .therapie-callout { padding: 26px 22px; }
 }
+
+/* ============== Types & techniques de Hijama (services.html) ============== */
+.types-hijama {
+  margin: 80px 0 64px;
+  padding: 56px 0 0;
+  border-top: 1px solid var(--line);
+}
+.types-hijama > .section-head { margin-bottom: 40px; }
+
+.types-block {
+  margin: 0 0 56px;
+}
+.types-block-head {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+.types-num {
+  font-family: var(--serif);
+  font-size: 44px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--accent);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  border-top: 2px solid var(--accent);
+  padding-top: 10px;
+}
+.types-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.15;
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin: 0 0 6px;
+}
+.types-title em { color: var(--accent); font-style: italic; font-weight: 400; }
+.types-lead {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 64ch;
+  margin: 0;
+}
+.types-lead strong { color: var(--ink); font-weight: 600; }
+.types-lead em { font-style: italic; color: var(--accent); }
+
+/* Dry cupping — 3 cards */
+.types-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-left: 78px;
+}
+.type-card {
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--accent);
+  padding: 22px 22px 22px;
+  display: flex; flex-direction: column;
+  gap: 10px;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+.type-card:hover { background: #fff; transform: translateY(-3px); }
+.type-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.type-card h4 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 2px;
+}
+.type-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  margin: 0;
+}
+.type-desc strong { color: var(--ink); font-weight: 600; }
+.type-bullets {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+  display: flex; flex-direction: column;
+  gap: 6px;
+}
+.type-bullets li {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  padding-left: 14px;
+  position: relative;
+  line-height: 1.45;
+}
+.type-bullets li::before {
+  content: "·";
+  position: absolute;
+  left: 4px; top: -2px;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Wet cupping — 4-step flow */
+.types-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-left: 78px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+}
+.flow-step {
+  padding: 22px 22px 22px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.flow-step:last-child { border-right: 0; }
+.flow-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  background: var(--bg-3);
+  padding: 6px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.flow-step strong {
+  display: block;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.flow-step p {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.types-warn {
+  margin: 18px 0 0 78px;
+  padding: 18px 22px;
+  background: #fff3ee;
+  border-left: 3px solid #b54a3a;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.types-warn-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b54a3a;
+  background: rgba(181, 74, 58, 0.10);
+  padding: 5px 10px;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.types-warn p {
+  margin: 0;
+  flex: 1;
+  min-width: 240px;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.types-warn p strong { color: #b54a3a; font-weight: 700; }
+
+/* Combined cupping list */
+.combined-grid {
+  list-style: none;
+  margin: 0 0 0 78px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.combined-grid li {
+  background: #fff;
+  padding: 18px 18px 18px;
+  display: flex; flex-direction: column;
+  gap: 6px;
+  transition: background 0.25s ease;
+}
+.combined-grid li:hover { background: var(--cream); }
+.cg-key {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 700;
+}
+.cg-val {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.cg-val em { font-style: italic; color: var(--accent); }
+
+/* Frequency table */
+.freq-table {
+  margin-left: 78px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+.freq-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.2s ease;
+}
+.freq-row:last-child { border-bottom: 0; }
+.freq-row:hover { background: var(--cream); }
+.freq-when {
+  padding: 16px 18px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--bg-3);
+  border-right: 1px solid var(--line);
+  font-weight: 600;
+}
+.freq-what {
+  padding: 16px 22px;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
+.freq-what strong { color: var(--ink); font-weight: 600; }
+.freq-foot {
+  margin: 18px 0 0 78px;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .types-grid { grid-template-columns: 1fr 1fr; margin-left: 0; }
+  .types-flow { grid-template-columns: 1fr 1fr; margin-left: 0; }
+  .flow-step:nth-child(2) { border-right: 0; }
+  .flow-step:nth-child(1), .flow-step:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .types-warn { margin-left: 0; }
+  .combined-grid { grid-template-columns: 1fr 1fr; margin-left: 0; }
+  .freq-table { margin-left: 0; }
+  .freq-foot { margin-left: 0; }
+  .types-block-head { grid-template-columns: 44px 1fr; gap: 18px; }
+  .types-num { font-size: 36px; }
+}
+@media (max-width: 720px) {
+  .types-grid { grid-template-columns: 1fr; }
+  .types-flow { grid-template-columns: 1fr; }
+  .flow-step { border-right: 0; border-bottom: 1px solid var(--line); }
+  .flow-step:last-child { border-bottom: 0; }
+  .combined-grid { grid-template-columns: 1fr; }
+  .freq-row { grid-template-columns: 120px 1fr; }
+  .freq-when { padding: 14px 14px; font-size: 10px; }
+  .freq-what { padding: 14px 16px; font-size: 13px; }
+}
