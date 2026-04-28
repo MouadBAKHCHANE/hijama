@@ -3592,7 +3592,10 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   transform: translate(-50%, 0);
   transition-delay: 0s;
 }
-.nav-dropdown-menu a {
+/* High specificity beats .nav.transparent .nav-links a (white) + suppresses underline ::after */
+.nav .nav-links .nav-dropdown-menu a,
+.nav.transparent .nav-links .nav-dropdown-menu a,
+.nav.scrolled .nav-links .nav-dropdown-menu a {
   display: block;
   padding: 12px 16px;
   font-family: var(--sans);
@@ -3602,13 +3605,20 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   border-left: 2px solid transparent;
   transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
 }
-.nav-dropdown-menu a:hover {
+.nav .nav-links .nav-dropdown-menu a::after,
+.nav.transparent .nav-links .nav-dropdown-menu a::after,
+.nav.scrolled .nav-links .nav-dropdown-menu a::after { display: none; }
+.nav .nav-links .nav-dropdown-menu a:hover,
+.nav.transparent .nav-links .nav-dropdown-menu a:hover,
+.nav.scrolled .nav-links .nav-dropdown-menu a:hover {
   background: var(--bg-3);
   border-left-color: var(--accent);
   color: var(--accent);
   padding-left: 20px;
 }
-.nav-dropdown-menu a.active {
+.nav .nav-links .nav-dropdown-menu a.active,
+.nav.transparent .nav-links .nav-dropdown-menu a.active,
+.nav.scrolled .nav-links .nav-dropdown-menu a.active {
   border-left-color: var(--accent);
   color: var(--accent);
   font-weight: 600;
@@ -4525,4 +4535,104 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .freq-row { grid-template-columns: 120px 1fr; }
   .freq-when { padding: 14px 14px; font-size: 10px; }
   .freq-what { padding: 14px 16px; font-size: 13px; }
+}
+
+/* ============== Drawer right-align + accordion (mobile/tablet) ============== */
+
+/* Right-align all main drawer items */
+.drawer .drawer-links {
+  align-items: stretch;
+}
+.drawer .drawer-links a,
+.drawer .drawer-links summary {
+  text-align: right;
+  justify-content: flex-end !important;
+  flex-direction: row;
+  gap: 14px;
+}
+.drawer .drawer-links a .num,
+.drawer .drawer-links summary .num {
+  order: 2;
+}
+.drawer .drawer-links a > span:not(.num),
+.drawer .drawer-links summary > span:not(.num):not(.drawer-caret) {
+  order: 1;
+  flex: 1 1 auto;
+}
+
+/* Accordion summary styled like a regular drawer link */
+.drawer .drawer-links .drawer-group {
+  width: 100%;
+}
+.drawer .drawer-links .drawer-group summary {
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--serif);
+  font-size: 26px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: baseline;
+  user-select: none;
+}
+.drawer .drawer-links .drawer-group summary::-webkit-details-marker { display: none; }
+.drawer .drawer-links .drawer-group summary::marker { display: none; content: ""; }
+
+.drawer .drawer-links .drawer-group .drawer-caret {
+  order: 0;
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--accent);
+  width: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+.drawer .drawer-links .drawer-group[open] .drawer-caret {
+  transform: rotate(45deg);
+}
+
+/* Sub-menu reveal animation */
+.drawer .drawer-links .drawer-group .drawer-sub {
+  text-align: right;
+  padding: 6px 0 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+  align-items: stretch;
+}
+.drawer .drawer-links .drawer-group .drawer-sub a {
+  text-align: right;
+  justify-content: flex-end !important;
+  border-left: 0;
+  border-right: 2px solid transparent;
+  padding: 10px 14px 10px 0;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.drawer .drawer-links .drawer-group .drawer-sub a::before {
+  content: "";
+  margin-right: 0;
+}
+.drawer .drawer-links .drawer-group .drawer-sub a::after {
+  content: " —";
+  opacity: 0.5;
+  margin-left: 6px;
+}
+.drawer .drawer-links .drawer-group .drawer-sub a:hover,
+.drawer .drawer-links .drawer-group .drawer-sub a.active {
+  color: #fff;
+  border-right-color: var(--sand);
+  padding-right: 14px;
+}
+
+/* Mobile size tweaks (override earlier mobile rules to match accordion) */
+@media (max-width: 720px) {
+  .drawer .drawer-links .drawer-group summary { font-size: 22px; padding: 14px 0; }
+  .drawer .drawer-links .drawer-group .drawer-caret { font-size: 16px; width: 18px; }
+  .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12.5px; padding: 8px 12px 8px 0; }
+}
+@media (max-width: 420px) {
+  .drawer .drawer-links .drawer-group summary { font-size: 20px; padding: 12px 0; }
+  .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12px; padding: 7px 10px 7px 0; }
 }
