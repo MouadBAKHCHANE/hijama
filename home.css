@@ -3570,9 +3570,11 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   left: 50%;
   transform: translate(-50%, 8px);
   min-width: 280px;
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: 0 24px 56px rgba(7,7,7,0.12);
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px) saturate(120%);
+  -webkit-backdrop-filter: blur(14px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 24px 56px rgba(7,7,7,0.18);
   padding: 8px;
   display: flex;
   flex-direction: column;
