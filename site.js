@@ -96,8 +96,6 @@
       const titleEl = modal.querySelector(".sm-title");
       const tagEl = modal.querySelector(".sm-tag");
       const descEl = modal.querySelector(".sm-desc");
-      const durEl = modal.querySelector(".sm-dur");
-      const priceEl = modal.querySelector(".sm-price");
       const ptsEl = modal.querySelector(".sm-points");
       const close = () => { modal.classList.remove("open"); document.body.style.overflow = ""; };
       closeBtn && closeBtn.addEventListener("click", close);
@@ -111,8 +109,6 @@
           tagEl.textContent = data.tag;
           titleEl.textContent = data.title;
           descEl.textContent = data.desc;
-          durEl.textContent = data.dur;
-          priceEl.textContent = data.price;
           ptsEl.innerHTML = data.points.map((p, i) =>
             `<li><span class="num">${String(i+1).padStart(2,"0")}</span>${p}</li>`
           ).join("");
@@ -258,6 +254,11 @@
           // Close drawer if the trigger came from the mobile drawer
           const drawer = document.querySelector('.drawer');
           if (drawer && drawer.contains(opener)) drawer.classList.remove('open');
+          // Close service-modal if it was the source (chained CTA)
+          const serviceModal = document.querySelector('.service-modal.open');
+          if (serviceModal && serviceModal.contains(opener)) {
+            serviceModal.classList.remove('open');
+          }
         }
         // Close handlers
         if (e.target.matches('[data-rdv-close]') || e.target.closest('[data-rdv-close]')) {

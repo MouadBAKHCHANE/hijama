@@ -2207,6 +2207,18 @@ body:has(.drawer.open) .rdv-fab {
   letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--muted); margin-bottom: 16px;
 }
+.sm-actions {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: flex-start;
+}
+.sm-actions .sm-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
 .sm-points { list-style: none; }
 .sm-points li {
   padding: 14px 0;
