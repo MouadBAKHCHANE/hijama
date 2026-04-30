@@ -3350,8 +3350,15 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 @media (max-width: 420px) {
   .container { padding: 0 14px; }
   .nav-cta { font-size: 10px; gap: 6px; padding: 8px 4px; }
-  .hero-facts { grid-template-columns: 1fr; }
-  .hero-facts .fact { border-right: 0; }
+  /* Keep the 2x2 facts grid even on small phones (matches design ref) */
+  .hero-facts { grid-template-columns: 1fr 1fr; }
+  .hero-facts .fact { padding: 14px 12px; }
+  .hero-facts .fact:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.15); }
+  .hero-facts .fact:nth-child(even) { border-right: 0; }
+  .hero-facts .fact:nth-child(-n+2) { border-bottom: 1px solid rgba(255,255,255,0.15); }
+  .hero-facts .fact:nth-last-child(-n+2) { border-bottom: 0; }
+  .hero-facts .fact .v { font-size: 26px; }
+  .hero-facts .fact .l { font-size: 8.5px; letter-spacing: 0.14em; }
   .footer-meta-item { grid-template-columns: 1fr; gap: 4px; padding: 10px 0; }
   .footer-meta-item .l { margin-bottom: 4px; }
   .drawer { padding: 80px 18px 28px; }
