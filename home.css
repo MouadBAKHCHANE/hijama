@@ -1825,6 +1825,16 @@ body:has(.drawer.open) .rdv-fab {
 }
 
 /* About intro paragraph (replaces the tenet cards) */
+.about-cabinet-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(32px, 4.2vw, 48px);
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 10px 0 18px;
+}
+.about-cabinet-title em { color: var(--accent); font-style: italic; font-weight: 400; }
 .about-intro-text {
   font-size: 17px;
   line-height: 1.7;
