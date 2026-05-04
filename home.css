@@ -4377,6 +4377,40 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 .types-lead strong { color: var(--ink); font-weight: 600; }
 .types-lead em { font-style: italic; color: var(--accent); }
 
+/* Section figure (image + caption) under each types-block-head */
+.types-figure {
+  margin: 6px 0 18px 78px;
+  padding: 18px 22px;
+  background: var(--cream);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.types-figure img {
+  width: 200px;
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+.types-figure figcaption {
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  font-style: italic;
+}
+@media (max-width: 1024px) {
+  .types-figure { margin-left: 0; }
+}
+@media (max-width: 720px) {
+  .types-figure { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 18px; }
+  .types-figure img { width: 100%; max-width: 320px; max-height: 200px; }
+  .types-figure figcaption { font-size: 12.5px; }
+}
+
 /* Dry cupping — 3 cards */
 .types-grid {
   display: grid;
