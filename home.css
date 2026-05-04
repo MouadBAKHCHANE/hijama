@@ -3705,9 +3705,9 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 }
 .therapie-hero-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 1fr 1fr;
   gap: 56px;
-  align-items: center;
+  align-items: stretch;
 }
 .therapie-hero-copy { display: flex; flex-direction: column; gap: 16px; }
 .therapie-hero-copy .section-title {
@@ -3757,8 +3757,10 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 .therapie-hero-img {
   margin: 0;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
   background: var(--bg-3);
+  aspect-ratio: 3 / 4;
+  min-height: 560px;
+  align-self: stretch;
 }
 .therapie-hero-img img {
   width: 100%; height: 100%;
@@ -4443,38 +4445,139 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 .types-lead strong { color: var(--ink); font-weight: 600; }
 .types-lead em { font-style: italic; color: var(--accent); }
 
-/* Section figure (image + caption) under each types-block-head */
-.types-figure {
-  margin: 6px 0 18px 78px;
-  padding: 18px 22px;
-  background: var(--cream);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--accent);
+/* Section banner — image as background with hover-zoom + overlay */
+.types-banner {
+  position: relative;
+  margin: 6px 0 22px 78px;
+  height: 280px;
+  overflow: hidden;
+  background: var(--ink);
   display: flex;
-  align-items: center;
-  gap: 22px;
+  align-items: flex-end;
+  cursor: default;
+  isolation: isolate;
 }
-.types-figure img {
-  width: 200px;
-  height: auto;
-  max-height: 160px;
-  object-fit: contain;
-  flex-shrink: 0;
+.types-banner-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+  transition: transform 0.8s cubic-bezier(.7,0,.3,1), filter 0.8s ease;
+  filter: contrast(0.95) saturate(0.85);
 }
-.types-figure figcaption {
-  font-size: 13px;
+.types-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(7,7,7,0) 35%, rgba(7,7,7,0.78) 100%),
+    linear-gradient(90deg, rgba(145,20,57,0.18) 0%, rgba(145,20,57,0) 60%);
+  transition: background 0.5s ease;
+  z-index: 1;
+}
+.types-banner:hover .types-banner-img {
+  transform: scale(1.06);
+  filter: contrast(1.02) saturate(1.0);
+}
+.types-banner:hover::after {
+  background:
+    linear-gradient(180deg, rgba(7,7,7,0) 25%, rgba(7,7,7,0.85) 100%),
+    linear-gradient(90deg, rgba(145,20,57,0.30) 0%, rgba(145,20,57,0.05) 70%);
+}
+.types-banner-caption {
+  position: relative;
+  z-index: 2;
+  padding: 22px 28px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #fff;
+  width: 100%;
+  font-style: normal;
+}
+.types-banner-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sand);
+  position: relative;
+  padding-left: 18px;
+}
+.types-banner-eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 12px; height: 1px;
+  background: var(--sand);
+}
+.types-banner-title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  color: #fff;
+}
+.types-banner-text {
+  font-size: 13.5px;
   line-height: 1.55;
-  color: var(--ink-2);
-  font-style: italic;
+  color: rgba(255,255,255,0.78);
+  max-width: 56ch;
 }
+
 @media (max-width: 1024px) {
-  .types-figure { margin-left: 0; }
+  .types-banner { margin-left: 0; height: 240px; }
 }
 @media (max-width: 720px) {
-  .types-figure { flex-direction: column; align-items: flex-start; gap: 14px; padding: 16px 18px; }
-  .types-figure img { width: 100%; max-width: 320px; max-height: 200px; }
-  .types-figure figcaption { font-size: 12.5px; }
+  .types-banner { height: 200px; }
+  .types-banner-caption { padding: 18px 20px 22px; }
+  .types-banner-title { font-size: 22px; }
+  .types-banner-text { font-size: 13px; }
+}
+
+/* SEO explainer below the anatomy diagrams */
+.points-explain {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  margin: 0 0 48px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 36px;
+}
+.points-explain-col h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 14px;
+  position: relative;
+  padding-left: 16px;
+}
+.points-explain-col h3::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 4px; height: calc(100% - 14px);
+  background: var(--accent);
+}
+.points-explain-col p {
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin: 0 0 12px;
+}
+.points-explain-col p:last-child { margin-bottom: 0; }
+.points-explain-col p strong { color: var(--ink); font-weight: 600; }
+.points-explain-col p em { color: var(--accent); font-style: italic; }
+
+@media (max-width: 900px) {
+  .points-explain { grid-template-columns: 1fr; gap: 28px; }
 }
 
 /* Dry cupping — 3 cards */
