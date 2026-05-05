@@ -169,9 +169,9 @@
           <label class="rdv-field"><span class="rdv-field-label">Téléphone *</span><input type="tel" name="phone" required placeholder="+212 …"></label>
           <label class="rdv-field"><span class="rdv-field-label">Email</span><input type="email" name="email" placeholder="vous@exemple.com"></label>
         </div>
-        <label class="rdv-field"><span class="rdv-field-label">Spécialité *</span>
+        <label class="rdv-field"><span class="rdv-field-label">Indication *</span>
           <select name="speciality" required>
-            <option value="" disabled selected>Choisissez une spécialité…</option>
+            <option value="" disabled selected>Choisissez une indication…</option>
             <option>Consultation médicale</option>
             <option>Hijama pour les douleurs dorsales</option>
             <option>Hijama pour le stress et l'anxiété</option>
@@ -180,7 +180,7 @@
             <option>Hijama pour la fertilité</option>
             <option>Hijama pour le SOPK</option>
             <option>Ventouses sèches</option>
-            <option>Journées Hijama Sunna</option>
+            <option>Hijama sportive</option>
           </select>
         </label>
         <div class="rdv-row">
