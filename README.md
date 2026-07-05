@@ -2,7 +2,7 @@
 
 Site officiel du cabinet **Hijama Therapy** — Dr. Latifa BOUHOUT, médecin généraliste à Salé (Tabriquet, Maroc). Site statique en HTML / CSS / JS, sans dépendance ni framework.
 
-**Production URL :** _à compléter_
+**Production URL :** https://hijamamedicale.com
 
 ---
 
@@ -62,7 +62,7 @@ Site officiel du cabinet **Hijama Therapy** — Dr. Latifa BOUHOUT, médecin gé
 
 - **Adresse:** Rue Lalla Asmae, Résidence Adam 2, Imm. 2, appt. 6, Tabriquet, 11000 Salé, Maroc
 - **Téléphone:** +212 537 866 270
-- **Email:** contact@drbouhoutlatifa.com
+- **Email:** contact@hijamamedicale.com
 - **Horaires:** Lun–Ven 9h → 17h · Samedi 9h → 13h
 - **Réseaux:** [Instagram](https://www.instagram.com/latifabht/) · [Facebook](https://web.facebook.com/BOUHOUTlatifa/) · [WhatsApp](https://wa.me/212537866270)
 
@@ -75,7 +75,7 @@ Site 100% statique → déployable en un clic sur **n'importe quel hébergement 
 ### Netlify (drag-and-drop)
 1. Aller sur https://app.netlify.com/drop
 2. Glisser le dossier `deploy/` (ou le dossier zippé) sur la page
-3. Connecter un domaine personnalisé (ex. `drbouhoutlatifa.ma`)
+3. Connecter un domaine personnalisé (ex. `hijamamedicale.com`)
 
 ### Vercel
 ```bash

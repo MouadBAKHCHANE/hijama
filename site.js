@@ -157,7 +157,7 @@
         <p class="rdv-lead">Des créneaux sont généralement disponibles dans la semaine. Pour une urgence ou un cas complexe, contactez-nous directement par téléphone.</p>
         <div class="rdv-meta">
           <a href="tel:+212537866270" class="rdv-meta-item"><span class="l">Téléphone</span><span class="v">+212 537 866 270</span></a>
-          <a href="mailto:contact@drbouhoutlatifa.com" class="rdv-meta-item"><span class="l">Email</span><span class="v">contact@drbouhoutlatifa.com</span></a>
+          <a href="mailto:contact@hijamamedicale.com" class="rdv-meta-item"><span class="l">Email</span><span class="v">contact@hijamamedicale.com</span></a>
           <div class="rdv-meta-item"><span class="l">Adresse</span><span class="v">Rue Lalla Asmae, Résidence Adam 2 · Tabriquet · Salé</span></div>
           <div class="rdv-meta-item"><span class="l">Horaires</span><span class="v">Lun–Ven · 9h → 17h<br>Samedi · 9h → 13h</span></div>
         </div>
