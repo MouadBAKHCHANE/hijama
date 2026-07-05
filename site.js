@@ -212,9 +212,9 @@
       const form = rdvModal.querySelector('.rdv-form');
       if (form && !form.dataset.wired) {
         form.dataset.wired = '1';
-        // ↓↓↓ Paste your Google Apps Script Web App URL (…/exec) here.
-        // Until it's set, the form still shows the thank-you message (no data is sent).
-        const RDV_ENDPOINT = '';
+        // Google Apps Script Web App — logs the request to a Google Sheet
+        // and emails contact@hijamamedicale.com. See rdv-apps-script.gs.
+        const RDV_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzDENSrwDGJBOvqbkrGVCPiUWFnANqa-YnHPnGX8OW0cw75AGH5GXfeMiLrCMWydYA2EQ/exec';
         form.addEventListener('submit', (e) => {
           e.preventDefault();
           if (!form.checkValidity()) { form.reportValidity(); return; }
