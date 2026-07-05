@@ -164,6 +164,7 @@
       </aside>
       <form class="rdv-form" novalidate>
         <h3 class="rdv-form-title">Vos coordonnées</h3>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;opacity:0;">
         <label class="rdv-field"><span class="rdv-field-label">Nom complet *</span><input type="text" name="name" required placeholder="Prénom et nom"></label>
         <div class="rdv-row">
           <label class="rdv-field"><span class="rdv-field-label">Téléphone *</span><input type="tel" name="phone" required placeholder="+212 …"></label>
@@ -211,15 +212,27 @@
       const form = rdvModal.querySelector('.rdv-form');
       if (form && !form.dataset.wired) {
         form.dataset.wired = '1';
+        // ↓↓↓ Paste your Google Apps Script Web App URL (…/exec) here.
+        // Until it's set, the form still shows the thank-you message (no data is sent).
+        const RDV_ENDPOINT = '';
         form.addEventListener('submit', (e) => {
           e.preventDefault();
           if (!form.checkValidity()) { form.reportValidity(); return; }
-          form.querySelector('.rdv-thanks').classList.add('is-shown');
-          setTimeout(() => {
-            window.closeRdvModal && window.closeRdvModal();
-            form.reset();
-            form.querySelector('.rdv-thanks').classList.remove('is-shown');
-          }, 2200);
+          const btn = form.querySelector('.rdv-submit');
+          const showThanks = () => {
+            form.querySelector('.rdv-thanks').classList.add('is-shown');
+            setTimeout(() => {
+              window.closeRdvModal && window.closeRdvModal();
+              form.reset();
+              form.querySelector('.rdv-thanks').classList.remove('is-shown');
+              if (btn) btn.disabled = false;
+            }, 2200);
+          };
+          if (!RDV_ENDPOINT) { showThanks(); return; }
+          if (btn) btn.disabled = true;
+          fetch(RDV_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
+            .then(showThanks)
+            .catch(showThanks);
         });
       }
     }
