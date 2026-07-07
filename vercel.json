@@ -26,6 +26,7 @@
     }
   ],
   "redirects": [
-    { "source": "/booking.html", "destination": "/contact.html", "permanent": true }
+    { "source": "/booking.html", "destination": "/contact", "permanent": true },
+    { "source": "/booking", "destination": "/contact", "permanent": true }
   ]
 }

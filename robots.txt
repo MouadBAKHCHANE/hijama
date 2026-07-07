@@ -1,4 +1,14 @@
 User-agent: *
 Allow: /
 
-Sitemap: /sitemap.xml
+# AI answer engines are welcome to read the content
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://hijamamedicale.com/sitemap.xml
