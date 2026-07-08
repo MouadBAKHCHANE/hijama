@@ -4981,3 +4981,7 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .drawer .drawer-links .drawer-group summary { font-size: 20px; padding: 12px 0; }
   .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12px; padding: 7px 10px 7px 0; }
 }
+
+/* Article author byline (E-E-A-T) */
+.article-byline a{color:#911439;font-weight:600;text-decoration:none;}
+.article-byline a:hover{text-decoration:underline;}
