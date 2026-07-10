@@ -284,6 +284,29 @@
       });
     }
 
+    // Quick-contact "Envoyer un message" (fs-form) -> Apps Script (email contact@hijamamedicale.com + Google Sheet)
+    (function () {
+      const EP = 'https://script.google.com/macros/s/AKfycbzDENSrwDGJBOvqbkrGVCPiUWFnANqa-YnHPnGX8OW0cw75AGH5GXfeMiLrCMWydYA2EQ/exec';
+      document.querySelectorAll('form.fs-form').forEach((form) => {
+        if (form.dataset.wired) return;
+        form.dataset.wired = '1';
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          if (!form.checkValidity()) { form.reportValidity(); return; }
+          const btn = form.querySelector('.fs-submit');
+          const thanks = form.querySelector('.fs-form-thanks');
+          if (btn) btn.disabled = true;
+          const fd = new FormData(form);
+          if (!fd.get('speciality')) fd.set('speciality', 'Message (contact rapide)');
+          const done = () => {
+            if (thanks) thanks.classList.add('is-shown');
+            setTimeout(() => { form.reset(); if (thanks) thanks.classList.remove('is-shown'); if (btn) btn.disabled = false; }, 3000);
+          };
+          fetch(EP, { method: 'POST', mode: 'no-cors', body: fd }).then(done).catch(done);
+        });
+      });
+    })();
+
     // i18n
     if (window.initI18n) window.initI18n();
   };
