@@ -143,6 +143,21 @@
       window.addEventListener('scroll', updateFab, { passive: true });
     }
 
+    // Back-to-top button — sits below the RDV FAB, bottom-right
+    if (!document.querySelector('.back-to-top')) {
+      document.body.insertAdjacentHTML('beforeend',
+        '<button type="button" class="back-to-top" aria-label="Retour en haut">' +
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>' +
+        '</button>');
+    }
+    const toTop = document.querySelector('.back-to-top');
+    if (toTop) {
+      const updateTop = () => toTop.classList.toggle('is-visible', window.scrollY > 200);
+      updateTop();
+      window.addEventListener('scroll', updateTop, { passive: true });
+      toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
     // RDV booking popup modal — auto-inject if not present on the page
     if (!document.querySelector('.rdv-modal')) {
       const html = `

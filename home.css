@@ -1765,7 +1765,7 @@ body.rdv-locked { overflow: hidden; }
 /* ===== Floating RDV button (FAB) — visible after scrolling past hero ===== */
 .rdv-fab {
   position: fixed;
-  bottom: 24px;
+  bottom: 84px;
   right: 24px;
   z-index: 900;
   display: inline-flex;
@@ -1806,6 +1806,46 @@ body:has(.drawer.open) .rdv-fab {
   pointer-events: none !important;
   transform: translateY(16px) scale(0.92) !important;
 }
+/* Back-to-top button — bottom-right, below the RDV FAB */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 900;
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: var(--accent);
+  border: 1px solid rgba(145, 20, 57, 0.22);
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(7, 7, 7, 0.14);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.92);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(.7,0,.3,1), visibility 0s linear 0.35s, background 0.2s ease, color 0.2s ease;
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+  transition: opacity 0.35s ease, transform 0.35s cubic-bezier(.7,0,.3,1), visibility 0s linear 0s, background 0.2s ease, color 0.2s ease;
+}
+.back-to-top:hover { background: var(--accent); color: #fff; }
+body.rdv-locked .back-to-top,
+body:has(.drawer.open) .back-to-top {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+/* Footer address -> clickable Google Maps link */
+.addr-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 4px; transition: opacity 0.2s ease; }
+.addr-link:hover { opacity: 0.75; }
 .rdv-fab svg { flex-shrink: 0; }
 .rdv-fab-label {
   max-width: 0;
