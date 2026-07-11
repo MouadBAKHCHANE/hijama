@@ -500,6 +500,9 @@
 .actualites .services-intro { font-size: 17px; line-height: 1.55; color: var(--ink-2); }
 /* Category filter fix: [hidden] must beat .blog-card { display:flex } */
 .blog-card[hidden] { display: none !important; }
+/* Footer credit link (MouaDev -> WhatsApp) — rose for contrast on the dark footer */
+.fb-credit { color: #e08494; text-decoration: none; font-weight: 600; }
+.fb-credit:hover { text-decoration: underline; }
 /* Google reviews summary -> clickable link to the GBP */
 a.review-summary { text-decoration: none; color: inherit; cursor: pointer; transition: opacity .2s; }
 a.review-summary:hover { opacity: .72; }
