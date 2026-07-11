@@ -498,9 +498,6 @@
 
 /* ---------- Actualités / Blog grid ---------- */
 .actualites .services-intro { font-size: 17px; line-height: 1.55; color: var(--ink-2); }
-/* Actualités: keep the fixed-nav clearance (64px), just trim the gap above the breadcrumb + header */
-.page-docteur main:has(> .page-head--compact + .actualites) > .page-head--compact { padding: 10px 0 4px; }
-.actualites { padding-top: 4px; }
 /* Category filter fix: [hidden] must beat .blog-card { display:flex } */
 .blog-card[hidden] { display: none !important; }
 /* Google reviews summary -> clickable link to the GBP */
