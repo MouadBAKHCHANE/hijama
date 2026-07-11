@@ -503,6 +503,10 @@
 .actualites { padding-top: 8px; }
 /* Category filter fix: [hidden] must beat .blog-card { display:flex } */
 .blog-card[hidden] { display: none !important; }
+/* Google reviews summary -> clickable link to the GBP */
+a.review-summary { text-decoration: none; color: inherit; cursor: pointer; transition: opacity .2s; }
+a.review-summary:hover { opacity: .72; }
+.review-summary-link { color: var(--accent); font-weight: 600; white-space: nowrap; }
 .blog-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
