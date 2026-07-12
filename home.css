@@ -1765,7 +1765,7 @@ body.rdv-locked { overflow: hidden; }
 /* ===== Floating RDV button (FAB) — visible after scrolling past hero ===== */
 .rdv-fab {
   position: fixed;
-  top: calc(50% - 26px);
+  bottom: 84px; /* stacked above the 52px back-to-top at bottom:24px */
   right: 24px;
   z-index: 900;
   display: inline-flex;
@@ -1854,7 +1854,8 @@ body:has(.drawer.open) .back-to-top {
 .rdv-fab-label { display: none; }
 .rdv-fab:hover { background: var(--accent-2); }
 @media (max-width: 540px) {
-  .rdv-fab { right: 16px; }
+  /* Mobile: RDV centered on the right edge, back-to-top stays bottom-right */
+  .rdv-fab { top: calc(50% - 26px); bottom: auto; right: 16px; }
   .back-to-top { bottom: 16px; right: 16px; }
 }
 

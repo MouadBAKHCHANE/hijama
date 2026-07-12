@@ -452,7 +452,7 @@ section:first-of-type { border-top: none; }
 /* ---------- Section progress (sticky nav side rail) ---------- */
 .progress-rail {
   position: fixed;
-  right: 96px; /* clear the center-right RDV FAB (52px wide at right:24px) */
+  right: 28px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 30;
