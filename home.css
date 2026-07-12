@@ -1765,13 +1765,16 @@ body.rdv-locked { overflow: hidden; }
 /* ===== Floating RDV button (FAB) — visible after scrolling past hero ===== */
 .rdv-fab {
   position: fixed;
-  bottom: 84px;
+  top: calc(50% - 26px);
   right: 24px;
   z-index: 900;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0;
-  padding: 14px 16px;
+  width: 52px;
+  height: 52px;
+  padding: 0;
   background: var(--accent);
   color: #fff;
   border: 0;
@@ -1812,8 +1815,8 @@ body:has(.drawer.open) .rdv-fab {
   bottom: 24px;
   right: 24px;
   z-index: 900;
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1847,42 +1850,12 @@ body:has(.drawer.open) .back-to-top {
 .addr-link { text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 4px; transition: opacity 0.2s ease; }
 .addr-link:hover { opacity: 0.75; }
 .rdv-fab svg { flex-shrink: 0; }
-.rdv-fab-label {
-  max-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  transition: max-width 0.35s cubic-bezier(.7,0,.3,1), margin 0.35s ease, opacity 0.25s ease;
-  opacity: 0;
-}
-.rdv-fab:hover {
-  background: var(--accent-2);
-  gap: 10px;
-  padding-right: 22px;
-}
-.rdv-fab:hover .rdv-fab-label {
-  max-width: 220px;
-  opacity: 1;
-}
+/* Icon-only circle everywhere (same size as back-to-top) */
+.rdv-fab-label { display: none; }
+.rdv-fab:hover { background: var(--accent-2); }
 @media (max-width: 540px) {
-  /* Center-right vertical stack: RDV on top, back-to-top below, both same size */
-  .rdv-fab {
-    top: calc(50% - 56px);
-    bottom: auto;
-    right: 16px;
-    width: 52px;
-    height: 52px;
-    padding: 0;
-    justify-content: center;
-  }
-  /* Always-collapsed pill on small mobile (icon only, opens modal on tap) */
-  .rdv-fab .rdv-fab-label { display: none; }
-  .back-to-top {
-    top: calc(50% + 4px);
-    bottom: auto;
-    right: 16px;
-    width: 52px;
-    height: 52px;
-  }
+  .rdv-fab { right: 16px; }
+  .back-to-top { bottom: 16px; right: 16px; }
 }
 
 /* About intro paragraph (replaces the tenet cards) */
