@@ -1864,13 +1864,25 @@ body:has(.drawer.open) .back-to-top {
   opacity: 1;
 }
 @media (max-width: 540px) {
+  /* Center-right vertical stack: RDV on top, back-to-top below, both same size */
   .rdv-fab {
-    bottom: 16px;
+    top: calc(50% - 56px);
+    bottom: auto;
     right: 16px;
-    padding: 12px 14px;
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
   }
   /* Always-collapsed pill on small mobile (icon only, opens modal on tap) */
   .rdv-fab .rdv-fab-label { display: none; }
+  .back-to-top {
+    top: calc(50% + 4px);
+    bottom: auto;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
 }
 
 /* About intro paragraph (replaces the tenet cards) */
