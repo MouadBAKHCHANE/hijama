@@ -41,7 +41,7 @@
 <!-- ============== NAV ============== -->
 <header class="nav transparent">
   <div class="nav-inner">
-    <a href="index.html" class="brand" aria-label="Dr. Bouhout Latifa — Cabinet médical Salé">
+    <a href="/" class="brand" aria-label="Dr. Bouhout Latifa — Cabinet médical Salé">
       <span class="brand-logo" aria-hidden="true">
         <svg viewBox="0 0 40 40" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 25.5c0-7.7 3.36-13.8 7.5-13.8s7.5 6.1 7.5 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><ellipse cx="20" cy="25.5" rx="7.5" ry="2.8" stroke="currentColor" stroke-width="1.7"/><path d="M20 5.4c-1.5 2-2.4 3.1-2.4 4.2a2.4 2.4 0 0 0 4.8 0c0-1.1-.9-2.2-2.4-4.2z" fill="currentColor"/></svg>
       </span>
@@ -50,23 +50,23 @@
       </span>
     </a>
     <nav class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="docteur.html">Cabinets</a>
+      <a href="/">Accueil</a>
+      <a href="/docteur">Cabinets</a>
       <div class="nav-dropdown">
-        <a href="services.html" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Thérapie<span class="nav-dropdown-caret" aria-hidden="true">▾</span></a>
+        <a href="/services" class="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">Thérapie<span class="nav-dropdown-caret" aria-hidden="true">▾</span></a>
         <div class="nav-dropdown-menu" role="menu">
-          <a href="services.html" role="menuitem">Indications</a>
-          <a href="therapie-points.html" role="menuitem">Techniques</a>
-          <a href="therapie-indications.html" role="menuitem">Indications &amp; contre-indications</a>
-          <a href="therapie-conseils.html" role="menuitem">Conseils &amp; effets secondaires</a>
-          <a href="therapie-etudes.html" role="menuitem">Études scientifiques</a>
+          <a href="/services" role="menuitem">Indications</a>
+          <a href="/therapie-points" role="menuitem">Techniques</a>
+          <a href="/therapie-indications" role="menuitem">Indications &amp; contre-indications</a>
+          <a href="/therapie-conseils" role="menuitem">Conseils &amp; effets secondaires</a>
+          <a href="/therapie-etudes" role="menuitem">Études scientifiques</a>
         </div>
       </div>
-      <a href="actualites.html">Actualités</a>
-      <a href="contact.html">Contact</a>
+      <a href="/actualites">Actualités</a>
+      <a href="/contact">Contact</a>
     </nav>
     <div class="nav-right">
-      <a href="booking.html" class="nav-cta"><span>Prendre rendez-vous</span><span class="nav-cta-arrow" aria-hidden="true">→</span></a>
+      <a href="/contact" data-rdv-open class="nav-cta"><span>Prendre rendez-vous</span><span class="nav-cta-arrow" aria-hidden="true">→</span></a>
       <button class="menu-btn" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -75,8 +75,8 @@
 <!-- mobile drawer -->
 <div class="drawer">
   <div class="drawer-links">
-    <a href="index.html"><span class="num">01</span><span>Accueil</span></a>
-    <a href="docteur.html"><span class="num">02</span><span>Cabinets</span></a>
+    <a href="/"><span class="num">01</span><span>Accueil</span></a>
+    <a href="/docteur"><span class="num">02</span><span>Cabinets</span></a>
     <details class="drawer-group">
       <summary>
         <span class="num">03</span>
@@ -84,17 +84,17 @@
         <span class="drawer-caret" aria-hidden="true">+</span>
       </summary>
       <div class="drawer-sub">
-      <a href="services.html">Indications</a>
-      <a href="therapie-points.html">Techniques</a>
-      <a href="therapie-indications.html">Indications &amp; contre-indications</a>
-      <a href="therapie-conseils.html">Conseils &amp; effets secondaires</a>
-      <a href="therapie-etudes.html">Études scientifiques</a>
+      <a href="/services">Indications</a>
+      <a href="/therapie-points">Techniques</a>
+      <a href="/therapie-indications">Indications &amp; contre-indications</a>
+      <a href="/therapie-conseils">Conseils &amp; effets secondaires</a>
+      <a href="/therapie-etudes">Études scientifiques</a>
     </div>
     </details>
-    <a href="actualites.html"><span class="num">04</span><span>Actualités</span></a>
-    <a href="contact.html"><span class="num">05</span><span>Contact</span></a>
+    <a href="/actualites"><span class="num">04</span><span>Actualités</span></a>
+    <a href="/contact"><span class="num">05</span><span>Contact</span></a>
   </div>
-  <a href="booking.html" class="drawer-cta">
+  <a href="/contact" data-rdv-open class="drawer-cta">
     <span>Prendre rendez-vous</span>
     <span class="drawer-cta-arrow" aria-hidden="true">→</span>
   </a>
@@ -122,7 +122,7 @@
   <a href="#services"><span class="dot"></span><span class="label">Indications</span></a>
   <a href="#hygiene"><span class="dot"></span><span class="label">Hygiène</span></a>
   <a href="#testim"><span class="dot"></span><span class="label">Avis</span></a>
-  <a href="actualites.html"><span class="dot"></span><span class="label">Actualités</span></a>
+  <a href="/actualites"><span class="dot"></span><span class="label">Actualités</span></a>
 </aside>
 
 <main>
@@ -141,7 +141,7 @@
         </h1>
         <p class="hero-lead">Cabinets médicaux alliant médecine générale conventionnelle et Hijama médicale. Soins personnalisés, suivi régulier, approche bienveillante.</p>
         <div class="hero-ctas">
-          <a href="booking.html" class="btn"><span>Prendre rendez-vous</span><span class="arrow"></span></a>
+          <a href="/contact" data-rdv-open class="btn"><span>Prendre rendez-vous</span><span class="arrow"></span></a>
           <a href="#process" class="btn ghost"><span>Lire le protocole</span></a>
         </div>
       </div>
@@ -276,8 +276,8 @@
     </div>
 
     <div class="about-cta-band">
-      <a href="docteur.html" class="btn"><span>En savoir plus sur la praticienne</span><span class="arrow"></span></a>
-      <a href="booking.html" class="link"><span>Prendre rendez-vous</span><span>→</span></a>
+      <a href="/docteur" class="btn"><span>En savoir plus sur la praticienne</span><span class="arrow"></span></a>
+      <a href="/contact" data-rdv-open class="link"><span>Prendre rendez-vous</span><span>→</span></a>
     </div>
   </div>
 </section>
@@ -397,7 +397,7 @@
           <span class="cs-eyebrow">— Approche intégrative</span>
           <p>La Hijama s'inscrit en <strong>médecine complémentaire</strong>, jamais alternative. Compte-rendu transmissible à votre médecin traitant sur demande.</p>
         </div>
-        <a href="services.html" class="link"><span>Voir toutes les indications</span><span>→</span></a>
+        <a href="/services" class="link"><span>Voir toutes les indications</span><span>→</span></a>
       </aside>
     </div>
 
@@ -476,7 +476,7 @@
     </div>
 
     <div style="margin-top:32px;">
-      <a href="services.html" class="link"><span>Voir toutes les indications en détail</span><span>→</span></a>
+      <a href="/services" class="link"><span>Voir toutes les indications en détail</span><span>→</span></a>
     </div>
   </div>
 </section>
@@ -754,7 +754,7 @@
 
     <div class="blog-grid">
       <article class="blog-card reveal">
-        <a href="article-hijama-sunna.html" class="blog-card-img">
+        <a href="/article-hijama-sunna" class="blog-card-img">
           <img src="assets/article-sunna.jpg" alt="Hijama Sunna — jours lunaires">
           <span class="blog-tag">Tradition</span>
         </a>
@@ -763,13 +763,13 @@
           <span class="blog-dot" aria-hidden="true"></span>
           <span class="blog-read">5 min de lecture</span>
         </div>
-        <h3 class="blog-title"><a href="article-hijama-sunna.html">Pourquoi les 17, 19 et 21 du mois lunaire en Hijama Sunna ?</a></h3>
+        <h3 class="blog-title"><a href="/article-hijama-sunna">Pourquoi les 17, 19 et 21 du mois lunaire en Hijama Sunna ?</a></h3>
         <p class="blog-excerpt">La tradition prophétique recommande ces trois jours précis. Nous explorons les hadiths, le calendrier Hijri, et notre protocole pour ces journées spéciales.</p>
-        <a href="article-hijama-sunna.html" class="blog-link"><span>Lire l'article</span><span>→</span></a>
+        <a href="/article-hijama-sunna" class="blog-link"><span>Lire l'article</span><span>→</span></a>
       </article>
 
       <article class="blog-card reveal delay-1">
-        <a href="article-lombalgies-hijama.html" class="blog-card-img">
+        <a href="/article-lombalgies-hijama" class="blog-card-img">
           <img src="assets/article-back-pain.jpg" alt="Hijama et lombalgies chroniques">
           <span class="blog-tag">Pratique</span>
         </a>
@@ -778,13 +778,13 @@
           <span class="blog-dot" aria-hidden="true"></span>
           <span class="blog-read">8 min de lecture</span>
         </div>
-        <h3 class="blog-title"><a href="article-lombalgies-hijama.html">Lombalgies chroniques : la Hijama en complément de votre traitement médical</a></h3>
+        <h3 class="blog-title"><a href="/article-lombalgies-hijama">Lombalgies chroniques : la Hijama en complément de votre traitement médical</a></h3>
         <p class="blog-excerpt">Comment la thérapie par ventouses agit-elle sur les douleurs dorsales persistantes ? Études cliniques, protocole et résultats observés au cabinet.</p>
-        <a href="article-lombalgies-hijama.html" class="blog-link"><span>Lire l'article</span><span>→</span></a>
+        <a href="/article-lombalgies-hijama" class="blog-link"><span>Lire l'article</span><span>→</span></a>
       </article>
 
       <article class="blog-card reveal delay-2">
-        <a href="article-conseils-premiere-seance.html" class="blog-card-img">
+        <a href="/article-conseils-premiere-seance" class="blog-card-img">
           <img src="assets/article-first-session.jpg" alt="Conseils avant la première séance">
           <span class="blog-tag">Conseils</span>
         </a>
@@ -793,14 +793,14 @@
           <span class="blog-dot" aria-hidden="true"></span>
           <span class="blog-read">4 min de lecture</span>
         </div>
-        <h3 class="blog-title"><a href="article-conseils-premiere-seance.html">Avant votre première séance : 5 conseils essentiels</a></h3>
+        <h3 class="blog-title"><a href="/article-conseils-premiere-seance">Avant votre première séance : 5 conseils essentiels</a></h3>
         <p class="blog-excerpt">Hydratation, repas léger, vêtements adaptés, traitements en cours… tout ce qu'il faut savoir pour bien préparer votre venue au cabinet.</p>
-        <a href="article-conseils-premiere-seance.html" class="blog-link"><span>Lire l'article</span><span>→</span></a>
+        <a href="/article-conseils-premiere-seance" class="blog-link"><span>Lire l'article</span><span>→</span></a>
       </article>
     </div>
 
     <div class="blog-cta">
-      <a href="actualites.html" class="link"><span>Voir tous les articles</span><span>→</span></a>
+      <a href="/actualites" class="link"><span>Voir tous les articles</span><span>→</span></a>
     </div>
   </div>
 </section>
@@ -821,7 +821,7 @@
             <span class="muted">Une thérapie ancestrale<br>encadrée par la médecine.</span>
           </h2>
           <div class="fs-actions">
-            <a href="booking.html" class="btn"><span>Prendre rendez-vous</span><span class="arrow"></span></a>
+            <a href="/contact" data-rdv-open class="btn"><span>Prendre rendez-vous</span><span class="arrow"></span></a>
             <a href="tel:+212537866270" class="link"><span>+212 537 866 270</span><span>↗</span></a>
           </div>
         </div>
@@ -884,7 +884,7 @@
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="index.html" class="footer-logo" aria-label="Hijama Médicale">
+        <a href="/" class="footer-logo" aria-label="Hijama Médicale">
           <span class="brand-logo" aria-hidden="true">
             <svg viewBox="0 0 40 40" width="40" height="40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12.5 25.5c0-7.7 3.36-13.8 7.5-13.8s7.5 6.1 7.5 13.8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><ellipse cx="20" cy="25.5" rx="7.5" ry="2.8" stroke="currentColor" stroke-width="1.7"/><path d="M20 5.4c-1.5 2-2.4 3.1-2.4 4.2a2.4 2.4 0 0 0 4.8 0c0-1.1-.9-2.2-2.4-4.2z" fill="currentColor"/></svg>
           </span>
@@ -916,21 +916,21 @@
       <div class="footer-col">
         <h4>Menu</h4>
         <ul class="footer-links">
-          <li><a href="index.html"><span class="dot"></span>Accueil</a></li>
-          <li><a href="docteur.html"><span class="dot"></span>Cabinets</a></li>
-          <li><a href="services.html"><span class="dot"></span>Thérapie</a></li>
-          <li><a href="actualites.html"><span class="dot"></span>Actualités</a></li>
-          <li><a href="contact.html"><span class="dot"></span>Contact</a></li>
+          <li><a href="/"><span class="dot"></span>Accueil</a></li>
+          <li><a href="/docteur"><span class="dot"></span>Cabinets</a></li>
+          <li><a href="/services"><span class="dot"></span>Thérapie</a></li>
+          <li><a href="/actualites"><span class="dot"></span>Actualités</a></li>
+          <li><a href="/contact"><span class="dot"></span>Contact</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Thérapie</h4>
         <ul class="footer-links">
-          <li><a href="services.html"><span class="dot"></span>Indications</a></li>
-          <li><a href="therapie-points.html"><span class="dot"></span>Techniques</a></li>
-          <li><a href="therapie-indications.html"><span class="dot"></span>Indications</a></li>
-          <li><a href="therapie-conseils.html"><span class="dot"></span>Conseils &amp; effets</a></li>
-          <li><a href="therapie-etudes.html"><span class="dot"></span>Études scientifiques</a></li>
+          <li><a href="/services"><span class="dot"></span>Indications</a></li>
+          <li><a href="/therapie-points"><span class="dot"></span>Techniques</a></li>
+          <li><a href="/therapie-indications"><span class="dot"></span>Indications</a></li>
+          <li><a href="/therapie-conseils"><span class="dot"></span>Conseils &amp; effets</a></li>
+          <li><a href="/therapie-etudes"><span class="dot"></span>Études scientifiques</a></li>
         </ul>
       </div>
 
@@ -970,7 +970,7 @@
         <span class="fb-sig">© 2026 Hijama <em>Médicale</em> · Tous droits réservés. Conçu par <a class="fb-credit" href="https://wa.me/212611714711" target="_blank" rel="noopener">MouaDev</a></span>
       </div>
       <div class="fb-right">
-        <a class="fb-mono footer-legal-link" href="confidentialite.html">Politique de confidentialité</a>
+        <a class="fb-mono footer-legal-link" href="/confidentialite">Politique de confidentialité</a>
         <span class="live-dot" aria-hidden="true"></span>
         <span class="fb-mono" id="fb-clock">--:--</span>
       </div>
@@ -991,7 +991,7 @@
       <div class="sm-pts-label">Inclus dans la séance</div>
       <ul class="sm-points"></ul>
       <div class="sm-actions">
-        <a href="booking.html" class="btn sm-cta" data-rdv-open><span>Prendre rendez-vous</span><span class="arrow"></span></a>
+        <a href="/contact" class="btn sm-cta" data-rdv-open><span>Prendre rendez-vous</span><span class="arrow"></span></a>
       </div>
     </div>
   </div>
