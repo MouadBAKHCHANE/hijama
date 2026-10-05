@@ -158,109 +158,80 @@
       toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // RDV booking popup modal — auto-inject if not present on the page
+    // RDV popup — phone during opening hours, WhatsApp outside them (auto-injected)
     if (!document.querySelector('.rdv-modal')) {
       const html = `
 <div class="rdv-modal" role="dialog" aria-modal="true" aria-labelledby="rdv-title" aria-hidden="true">
   <div class="rdv-backdrop" data-rdv-close></div>
   <div class="rdv-card" role="document">
     <button class="rdv-close" type="button" aria-label="Fermer" data-rdv-close>×</button>
-    <div class="rdv-grid">
-      <aside class="rdv-info">
-        <span class="eyebrow"><span>— Prise de rendez-vous</span></span>
-        <h2 class="rdv-title" id="rdv-title">Réserver <em>une séance.</em></h2>
-        <p class="rdv-lead">Des créneaux sont généralement disponibles dans la semaine. Pour une urgence ou un cas complexe, contactez-nous directement par téléphone.</p>
-        <div class="rdv-meta">
-          <a href="tel:+212537866270" class="rdv-meta-item"><span class="l">Téléphone</span><span class="v">+212 537 866 270</span></a>
-          <a href="mailto:contact@hijamamedicale.com" class="rdv-meta-item"><span class="l">Email</span><span class="v">contact@hijamamedicale.com</span></a>
-          <div class="rdv-meta-item"><span class="l">Adresse</span><span class="v">Rue Lalla Asmae, Résidence Adam 2 · Tabriquet · Salé</span></div>
-          <div class="rdv-meta-item"><span class="l">Horaires</span><span class="v">Lun–Ven · 9h → 17h<br>Samedi · 9h → 13h</span></div>
-        </div>
-      </aside>
-      <form class="rdv-form" novalidate>
-        <h3 class="rdv-form-title">Vos coordonnées</h3>
-        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;opacity:0;">
-        <label class="rdv-field"><span class="rdv-field-label">Nom complet *</span><input type="text" name="name" required placeholder="Prénom et nom"></label>
-        <div class="rdv-row">
-          <label class="rdv-field"><span class="rdv-field-label">Téléphone *</span><input type="tel" name="phone" required placeholder="+212 …"></label>
-          <label class="rdv-field"><span class="rdv-field-label">Email</span><input type="email" name="email" placeholder="vous@exemple.com"></label>
-        </div>
-        <label class="rdv-field"><span class="rdv-field-label">Indication *</span>
-          <select name="speciality" required>
-            <option value="" disabled selected>Choisissez une indication…</option>
-            <option>Consultation médicale</option>
-            <option>Hijama pour les douleurs dorsales</option>
-            <option>Hijama pour le stress et l’anxiété</option>
-            <option>Hijama pour la perte de poids</option>
-            <option>Hijama pour les migraines</option>
-            <option>Hijama pour la fertilité</option>
-            <option>Hijama pour le SOPK</option>
-            <option>Ventouses sèches</option>
-            <option>Hijama sportive</option>
-          </select>
-        </label>
-        <div class="rdv-row">
-          <label class="rdv-field"><span class="rdv-field-label">Date souhaitée</span><input type="date" name="date"></label>
-          <label class="rdv-field"><span class="rdv-field-label">Créneau</span>
-            <select name="slot">
-              <option value="" disabled selected>Sélectionner…</option>
-              <option>Matin (9h–12h)</option>
-              <option>Après-midi (14h–17h)</option>
-              <option>Samedi matin (9h–13h)</option>
-            </select>
-          </label>
-        </div>
-        <label class="rdv-field"><span class="rdv-field-label">Message (facultatif)</span><textarea name="message" rows="3" placeholder="Préciser votre motif, antécédents, traitement en cours…"></textarea></label>
-        <div class="rdv-consent"><label><input type="checkbox" required><span>J’accepte d’être recontacté(e) pour confirmer le rendez-vous.</span></label></div>
-        <button type="submit" class="rdv-submit"><span>Envoyer la demande</span><span class="rdv-arrow" aria-hidden="true">→</span></button>
-        <div class="rdv-thanks" role="status">✓ Merci, votre demande est bien reçue. Nous vous recontactons sous 24 h.</div>
-      </form>
+    <span class="eyebrow"><span>— Prise de rendez-vous</span></span>
+    <h2 class="rdv-title" id="rdv-title">Réserver <em>une séance.</em></h2>
+    <p class="rdv-status" data-rdv-status><span class="rdv-dot" aria-hidden="true"></span><span data-rdv-status-text></span></p>
+    <div class="rdv-meta">
+      <a href="tel:+212537866270" class="rdv-meta-item"><span class="l">Téléphone</span><span class="v">+212 537 866 270</span></a>
+      <div class="rdv-meta-item"><span class="l">Horaires</span><span class="v">Lun–Ven · 9h → 17h<br>Samedi · 9h → 13h</span></div>
     </div>
+    <a class="rdv-cta" href="tel:+212537866270" data-rdv-call>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Appeler le cabinet</span>
+    </a>
+    <a class="rdv-cta rdv-cta--wa" href="https://wa.me/212537866270?text=${encodeURIComponent('Bonjour, je souhaite prendre rendez-vous pour une séance de Hijama.')}" target="_blank" rel="noopener" data-rdv-wa hidden>
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+      <span>Écrire sur WhatsApp</span>
+    </a>
+    <p class="rdv-note" data-rdv-wa-note hidden>Hors horaires d’ouverture : laissez-nous un message, nous vous répondons dès la réouverture.</p>
   </div>
 </div>`;
       document.body.insertAdjacentHTML('beforeend', html);
     }
 
     const rdvModal = document.querySelector('.rdv-modal');
-    if (rdvModal) {
-      // Wire form submission with thanks state
-      const form = rdvModal.querySelector('.rdv-form');
-      if (form && !form.dataset.wired) {
-        form.dataset.wired = '1';
-        // Google Apps Script Web App — logs the request to a Google Sheet
-        // and emails contact@hijamamedicale.com. See rdv-apps-script.gs.
-        const RDV_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzDENSrwDGJBOvqbkrGVCPiUWFnANqa-YnHPnGX8OW0cw75AGH5GXfeMiLrCMWydYA2EQ/exec';
-        form.addEventListener('submit', (e) => {
-          e.preventDefault();
-          if (!form.checkValidity()) { form.reportValidity(); return; }
-          const btn = form.querySelector('.rdv-submit');
-          const showThanks = () => {
-            form.querySelector('.rdv-thanks').classList.add('is-shown');
-            setTimeout(() => {
-              window.closeRdvModal && window.closeRdvModal();
-              form.reset();
-              form.querySelector('.rdv-thanks').classList.remove('is-shown');
-              if (btn) btn.disabled = false;
-            }, 2200);
-          };
-          if (!RDV_ENDPOINT) { showThanks(); return; }
-          if (btn) btn.disabled = true;
-          fetch(RDV_ENDPOINT, { method: 'POST', mode: 'no-cors', body: new FormData(form) })
-            .then(showThanks)
-            .catch(showThanks);
-        });
+
+    // Opening hours in Salé time: Mon–Fri 9h–17h, Sat 9h–13h, closed Sunday
+    const HOURS = { 1: [9, 17], 2: [9, 17], 3: [9, 17], 4: [9, 17], 5: [9, 17], 6: [9, 13] };
+    const DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+    const cabinetStatus = () => {
+      let day, mins;
+      try {
+        const p = {};
+        new Intl.DateTimeFormat('en-US', { timeZone: 'Africa/Casablanca', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' })
+          .formatToParts(new Date()).forEach(({ type, value }) => { p[type] = value; });
+        day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday);
+        mins = +p.hour * 60 + +p.minute;
+      } catch (_) {
+        const d = new Date(); day = d.getDay(); mins = d.getHours() * 60 + d.getMinutes();
       }
-    }
+      const today = HOURS[day];
+      if (today && mins >= today[0] * 60 && mins < today[1] * 60) {
+        return { open: true, text: 'Ouvert maintenant · jusqu’à ' + today[1] + 'h' };
+      }
+      if (today && mins < today[0] * 60) return { open: false, text: 'Fermé · ouvre aujourd’hui à ' + today[0] + 'h' };
+      let next = (day + 1) % 7;
+      while (!HOURS[next]) next = (next + 1) % 7;
+      const when = next === (day + 1) % 7 ? 'demain' : DAYS[next];
+      return { open: false, text: 'Fermé · ouvre ' + when + ' à ' + HOURS[next][0] + 'h' };
+    };
+    const refreshRdvStatus = () => {
+      if (!rdvModal) return;
+      const s = cabinetStatus();
+      rdvModal.querySelector('[data-rdv-status]').classList.toggle('is-open', s.open);
+      rdvModal.querySelector('[data-rdv-status-text]').textContent = s.text;
+      rdvModal.querySelector('[data-rdv-call]').hidden = !s.open;
+      rdvModal.querySelector('[data-rdv-wa]').hidden = s.open;
+      rdvModal.querySelector('[data-rdv-wa-note]').hidden = s.open;
+    };
 
     if (rdvModal) {
       const openModal = () => {
+        refreshRdvStatus();
         rdvModal.classList.add('is-open');
         rdvModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('rdv-locked');
-        // Focus first input for accessibility
+        // Focus the visible call-to-action for accessibility
         setTimeout(() => {
-          const firstInput = rdvModal.querySelector('input, select, textarea');
-          if (firstInput) firstInput.focus();
+          const cta = rdvModal.querySelector('.rdv-cta:not([hidden])');
+          if (cta) cta.focus();
         }, 200);
       };
       const closeModal = () => {
