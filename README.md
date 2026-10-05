@@ -64,7 +64,7 @@ Site officiel du cabinet **Hijama Therapy** — Dr. Latifa BOUHOUT, médecin gé
 - **Téléphone:** +212 537 866 270
 - **Email:** contact@hijamamedicale.com
 - **Horaires:** Lun–Ven 9h → 17h · Samedi 9h → 13h
-- **Réseaux:** [Instagram](https://www.instagram.com/latifabht/) · [Facebook](https://web.facebook.com/BOUHOUTlatifa/) · [WhatsApp](https://wa.me/212537866270)
+- **Réseaux:** [Instagram](https://www.instagram.com/latifabht/) · [Facebook](https://web.facebook.com/BOUHOUTlatifa/) · [WhatsApp](https://wa.me/212618939300)
 
 ---
 
