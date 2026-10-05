@@ -4854,31 +4854,34 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .freq-what { padding: 14px 16px; font-size: 13px; }
 }
 
-/* ============== Drawer right-align + accordion (mobile/tablet) ============== */
+/* ============== Drawer: titles left, numbers right + accordion (mobile/tablet) ============== */
 
-/* Right-align all main drawer items */
 .drawer .drawer-links {
   align-items: stretch;
 }
 .drawer .drawer-links a,
 .drawer .drawer-links summary {
-  text-align: right;
-  justify-content: flex-end !important;
+  text-align: left;
+  justify-content: flex-start !important;
   flex-direction: row;
   gap: 14px;
-}
-.drawer .drawer-links a .num,
-.drawer .drawer-links summary .num {
-  order: 2;
-  flex: 0 0 auto;
 }
 .drawer .drawer-links a > span:not(.num),
 .drawer .drawer-links summary > span:not(.num):not(.drawer-caret) {
   order: 1;
+  flex: 1 1 auto;               /* title takes the row, pushing the number right */
+}
+.drawer .drawer-links a .num,
+.drawer .drawer-links summary .num {
+  order: 3;
   flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--sand);
 }
 
-/* Accordion summary styled like a regular drawer link */
+/* Accordion summary styled exactly like a regular drawer link */
 .drawer .drawer-links .drawer-group {
   width: 100%;
 }
@@ -4887,18 +4890,26 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   cursor: pointer;
   font-family: var(--serif);
   font-size: 26px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.6);
   padding: 16px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   display: flex;
   align-items: baseline;
   user-select: none;
+  transition: color 0.25s ease;
 }
+.drawer .drawer-links .drawer-group summary:hover,
+.drawer .drawer-links .drawer-group[open] summary { color: #fff; }
 .drawer .drawer-links .drawer-group summary::-webkit-details-marker { display: none; }
 .drawer .drawer-links .drawer-group summary::marker { display: none; content: ""; }
 
+/* Caret sits right after "Thérapie" so the 03 lines up with the other numbers */
+.drawer .drawer-links .drawer-group summary > span:not(.num):not(.drawer-caret) { flex: 0 0 auto; }
 .drawer .drawer-links .drawer-group .drawer-caret {
-  order: 3;
+  order: 2;
   flex: 0 0 auto;
+  margin-right: auto;
   font-family: var(--mono);
   font-size: 22px;
   font-weight: 300;
@@ -4914,48 +4925,61 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   color: #fff;
 }
 
-/* Sub-menu reveal animation */
+/* Sub-menu: left-aligned under its title */
 .drawer .drawer-links .drawer-group .drawer-sub {
-  text-align: right;
+  text-align: left;
   padding: 6px 0 12px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   align-items: stretch;
 }
 .drawer .drawer-links .drawer-group .drawer-sub a {
-  text-align: right;
-  justify-content: flex-end !important;
-  border-left: 0;
-  border-right: 2px solid transparent;
-  padding: 10px 14px 10px 0;
+  text-align: left;
+  justify-content: flex-start !important;
+  border-left: 2px solid transparent;
+  border-right: 0;
+  padding: 10px 0 10px 14px;
   font-family: var(--sans);
   font-size: 13.5px;
   color: rgba(255, 255, 255, 0.6);
 }
 .drawer .drawer-links .drawer-group .drawer-sub a::before {
-  content: "";
-  margin-right: 0;
-}
-.drawer .drawer-links .drawer-group .drawer-sub a::after {
-  content: " —";
+  content: "— ";
   opacity: 0.5;
-  margin-left: 6px;
+  margin-right: 2px;
 }
+.drawer .drawer-links .drawer-group .drawer-sub a::after { content: none; }
 .drawer .drawer-links .drawer-group .drawer-sub a:hover,
 .drawer .drawer-links .drawer-group .drawer-sub a.active {
   color: #fff;
-  border-right-color: var(--sand);
-  padding-right: 14px;
+  border-left-color: var(--sand);
+  padding-left: 18px;
 }
+
+/* Address under the social icons -> Google Maps */
+.drawer-address {
+  margin-top: 22px;
+  align-self: center;
+  display: inline-flex; align-items: flex-start; gap: 10px;
+  max-width: 280px;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+.drawer-address svg { flex-shrink: 0; margin-top: 3px; color: var(--sand); }
+.drawer-address:hover { color: #fff; }
 
 /* Mobile size tweaks (override earlier mobile rules to match accordion) */
 @media (max-width: 720px) {
   .drawer .drawer-links .drawer-group summary { font-size: 22px; padding: 14px 0; }
   .drawer .drawer-links .drawer-group .drawer-caret { font-size: 16px; width: 18px; }
-  .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12.5px; padding: 8px 12px 8px 0; }
+  .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12.5px; padding: 8px 0 8px 12px; }
 }
 @media (max-width: 420px) {
   .drawer .drawer-links .drawer-group summary { font-size: 20px; padding: 12px 0; }
-  .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12px; padding: 7px 10px 7px 0; }
+  .drawer .drawer-links .drawer-group .drawer-sub a { font-size: 12px; padding: 7px 0 7px 10px; }
 }
 
 /* Article author byline (E-E-A-T) */
