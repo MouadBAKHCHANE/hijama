@@ -165,7 +165,7 @@
   <div class="rdv-backdrop" data-rdv-close></div>
   <div class="rdv-card" role="document">
     <button class="rdv-close" type="button" aria-label="Fermer" data-rdv-close>×</button>
-    <span class="eyebrow"><span>— Prise de rendez-vous</span></span>
+    <span class="eyebrow"><span>| Prise de rendez-vous</span></span>
     <h2 class="rdv-title" id="rdv-title">Réserver <em>une séance.</em></h2>
     <p class="rdv-status" data-rdv-status><span class="rdv-dot" aria-hidden="true"></span><span data-rdv-status-text></span></p>
     <div class="rdv-meta">
