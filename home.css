@@ -1696,6 +1696,7 @@ a.rdv-meta-item:hover .v { color: var(--accent); }
 @media (max-width: 540px) {
   .rdv-modal { padding: 16px; }
   .rdv-card { aspect-ratio: auto; padding: 32px 22px 24px; }
+  .rdv-cta { padding: 14px 8px; gap: 8px; letter-spacing: 0.12em; }
 }
 
 /* Lock body scroll when modal open */
@@ -4854,7 +4855,7 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .freq-what { padding: 14px 16px; font-size: 13px; }
 }
 
-/* ============== Drawer: titles left, numbers right + accordion (mobile/tablet) ============== */
+/* ============== Drawer: number, then title (left-aligned) + accordion (mobile/tablet) ============== */
 
 .drawer .drawer-links {
   align-items: stretch;
@@ -4868,12 +4869,13 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 }
 .drawer .drawer-links a > span:not(.num),
 .drawer .drawer-links summary > span:not(.num):not(.drawer-caret) {
-  order: 1;
-  flex: 1 1 auto;               /* title takes the row, pushing the number right */
+  order: 2;
+  flex: 1 1 auto;
 }
 .drawer .drawer-links a .num,
 .drawer .drawer-links summary .num {
-  order: 3;
+  order: 1;
+  min-width: 22px;              /* keeps every title on the same left edge */
   flex: 0 0 auto;
   font-family: var(--mono);
   font-size: 11px;
@@ -4904,12 +4906,12 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 .drawer .drawer-links .drawer-group summary::-webkit-details-marker { display: none; }
 .drawer .drawer-links .drawer-group summary::marker { display: none; content: ""; }
 
-/* Caret sits right after "Thérapie" so the 03 lines up with the other numbers */
+/* "+" sits right next to "Thérapie" */
 .drawer .drawer-links .drawer-group summary > span:not(.num):not(.drawer-caret) { flex: 0 0 auto; }
 .drawer .drawer-links .drawer-group .drawer-caret {
-  order: 2;
+  order: 3;
   flex: 0 0 auto;
-  margin-right: auto;
+  margin-left: -4px;
   font-family: var(--mono);
   font-size: 22px;
   font-weight: 300;
@@ -4928,7 +4930,7 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 /* Sub-menu: left-aligned under its title */
 .drawer .drawer-links .drawer-group .drawer-sub {
   text-align: left;
-  padding: 6px 0 12px 0;
+  padding: 6px 0 12px 36px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.10);
   align-items: stretch;
 }
@@ -4985,3 +4987,33 @@ a.footer-meta-item:hover .v { color: var(--sand); }
 /* Article author byline (E-E-A-T) */
 .article-byline a{color:#911439;font-weight:600;text-decoration:none;}
 .article-byline a:hover{text-decoration:underline;}
+
+/* ============== Mobile footer: centered brand, 2-col menus, centered contact ============== */
+@media (max-width: 720px) {
+  /* "Avant de partir": centered CTAs, phone number hidden */
+  .fs-actions { align-items: center; }
+  .fs-actions .link { display: none; }
+  .fs-submit { align-self: center; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
+
+  /* Logo, tagline and social icons centered */
+  .footer-brand {
+    grid-column: 1 / -1;
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+  }
+  .footer-socials { justify-content: center; }
+
+  /* Menu (left) + Thérapie (right) sit side by side automatically */
+
+  /* "Nous trouver" + everything below: centered */
+  .footer-grid > .footer-col:last-child { grid-column: 1 / -1; text-align: center; }
+  .footer-grid > .footer-col:last-child h4 { display: inline-block; }
+  .footer-address-row { grid-template-columns: 1fr; justify-items: center; gap: 8px; }
+  .footer-address { align-items: center; }
+  .footer-meta-item { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 4px; }
+  a.footer-meta-item:hover { padding-left: 0; }
+  .footer-bottom { align-items: center; text-align: center; }
+  .fb-left, .fb-right { justify-content: center; }
+}
