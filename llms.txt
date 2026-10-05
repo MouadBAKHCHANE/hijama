@@ -15,7 +15,7 @@
 ## Pages principales
 - [Accueil](https://www.hijamamedicale.com/): présentation du cabinet, bénéfices, indications, hygiène, avis, FAQ
 - [Le cabinet / Dr. BOUHOUT](https://www.hijamamedicale.com/docteur): parcours et philosophie de la praticienne
-- [Indications](https://www.hijamamedicale.com/services): 8 indications de la Hijama médicale encadrées par un même protocole
+- [Nos soins](https://www.hijamamedicale.com/services): 8 soins de Hijama médicale encadrés par un même protocole
 - [Contact & rendez-vous](https://www.hijamamedicale.com/contact): adresse, horaires, prise de rendez-vous
 
 ## Thérapie

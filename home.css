@@ -5019,3 +5019,8 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   .fb-right { order: 1; }          /* legal links first… */
   .fb-left { order: 2; }           /* …© 2026 · Conçu par MouaDev last */
 }
+
+/* Page-head H1 in the right column (/contact, /actualites): right-aligned on desktop */
+@media (min-width: 901px) {
+  .section-head .section-title--right { text-align: right; }
+}
