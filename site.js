@@ -158,7 +158,7 @@
       toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     }
 
-    // RDV popup — phone during opening hours, WhatsApp outside them (auto-injected)
+    // RDV popup — phone + WhatsApp, with live open/closed status (auto-injected)
     if (!document.querySelector('.rdv-modal')) {
       const html = `
 <div class="rdv-modal" role="dialog" aria-modal="true" aria-labelledby="rdv-title" aria-hidden="true">
@@ -172,14 +172,16 @@
       <a href="tel:+212537866270" class="rdv-meta-item"><span class="l">Téléphone</span><span class="v">+212 537 866 270</span></a>
       <div class="rdv-meta-item"><span class="l">Horaires</span><span class="v">Lun–Ven · 9h → 17h<br>Samedi · 9h → 13h</span></div>
     </div>
-    <a class="rdv-cta" href="tel:+212537866270" data-rdv-call>
+    <div class="rdv-ctas">
+    <a class="rdv-cta" href="tel:+212537866270">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>Appeler le cabinet</span>
+      <span>Appeler</span>
     </a>
-    <a class="rdv-cta rdv-cta--wa" href="https://wa.me/212537866270?text=${encodeURIComponent('Bonjour, je souhaite prendre rendez-vous pour une séance de Hijama.')}" target="_blank" rel="noopener" data-rdv-wa hidden>
+    <a class="rdv-cta rdv-cta--wa" href="https://wa.me/212537866270?text=${encodeURIComponent('Bonjour, je souhaite prendre rendez-vous pour une séance de Hijama.')}" target="_blank" rel="noopener">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-      <span>Écrire sur WhatsApp</span>
+      <span>WhatsApp</span>
     </a>
+    </div>
     <p class="rdv-note" data-rdv-wa-note hidden>Hors horaires d’ouverture : laissez-nous un message, nous vous répondons dès la réouverture.</p>
   </div>
 </div>`;
@@ -217,8 +219,6 @@
       const s = cabinetStatus();
       rdvModal.querySelector('[data-rdv-status]').classList.toggle('is-open', s.open);
       rdvModal.querySelector('[data-rdv-status-text]').textContent = s.text;
-      rdvModal.querySelector('[data-rdv-call]').hidden = !s.open;
-      rdvModal.querySelector('[data-rdv-wa]').hidden = s.open;
       rdvModal.querySelector('[data-rdv-wa-note]').hidden = s.open;
     };
 
@@ -228,9 +228,9 @@
         rdvModal.classList.add('is-open');
         rdvModal.setAttribute('aria-hidden', 'false');
         document.body.classList.add('rdv-locked');
-        // Focus the visible call-to-action for accessibility
+        // Focus the first call-to-action for accessibility
         setTimeout(() => {
-          const cta = rdvModal.querySelector('.rdv-cta:not([hidden])');
+          const cta = rdvModal.querySelector('.rdv-cta');
           if (cta) cta.focus();
         }, 200);
       };

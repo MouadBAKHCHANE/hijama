@@ -608,7 +608,8 @@ a.review-summary:hover { opacity: .72; }
   overflow: hidden;
   min-height: 100vh;
   color: #fff;
-  display: block;
+  display: flex;
+  flex-direction: column;        /* content, then the scroll cue in flow below it */
 }
 .hero-video,
 .hero-bg {
@@ -641,14 +642,15 @@ a.review-summary:hover { opacity: .72; }
 .hero .container {
   position: relative; z-index: 2;
   padding-top: 220px;            /* moved hero copy lower */
-  padding-bottom: 60px;
+  padding-bottom: 24px;
   width: 100%;
+  flex: 1 0 auto;
 }
 @media (max-height: 880px) {
-  .hero .container { padding-top: 180px; padding-bottom: 50px; }
+  .hero .container { padding-top: 140px; }
 }
 @media (max-height: 760px) {
-  .hero .container { padding-top: 140px; padding-bottom: 40px; }
+  .hero .container { padding-top: 120px; }
 }
 .hero-grid {
   display: grid;
@@ -718,8 +720,11 @@ a.review-summary:hover { opacity: .72; }
   line-height: 1.2;
 }
 .hero-scroll-cue {
-  position: absolute; bottom: 24px; left: 50%;
-  transform: translateX(-50%);
+  /* In flow under the facts bar: always below the numbers, never on top of them */
+  position: relative;
+  align-self: center;
+  margin-top: auto;
+  padding: 12px 0 12px;
   z-index: 2;
   font-family: var(--mono); font-size: 10px;
   letter-spacing: 0.2em; text-transform: uppercase;
@@ -727,7 +732,7 @@ a.review-summary:hover { opacity: .72; }
   display: flex; flex-direction: column; align-items: center; gap: 10px;
 }
 .hero-scroll-cue .line {
-  width: 1px; height: 40px;
+  width: 1px; height: 32px;
   background: linear-gradient(180deg, transparent, rgba(255,255,255,0.7));
   animation: scrollCue 2.2s ease-in-out infinite;
 }
@@ -1663,9 +1668,12 @@ body.rdv-locked .nav { z-index: 1100; box-shadow: 0 1px 0 var(--line); }
 }
 a.rdv-meta-item:hover .v { color: var(--accent); }
 
-/* Call-to-action: phone (open) or WhatsApp (closed) */
-.rdv-cta {
+/* Call-to-actions: phone + WhatsApp, side by side */
+.rdv-ctas {
   margin-top: auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.rdv-cta {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   font-family: var(--mono); font-size: 11px;
   letter-spacing: 0.18em; text-transform: uppercase;
@@ -1677,7 +1685,7 @@ a.rdv-meta-item:hover .v { color: var(--accent); }
 .rdv-cta:hover { background: var(--accent); color: #fff; }
 .rdv-cta--wa { background: #128c7e; color: #fff; }
 .rdv-cta--wa:hover { background: #0e6f64; }
-.rdv-cta[hidden], .rdv-note[hidden] { display: none; }
+.rdv-note[hidden] { display: none; }
 .rdv-note {
   margin: -6px 0 0;
   font-size: 12px;
