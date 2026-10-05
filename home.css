@@ -5016,4 +5016,6 @@ a.footer-meta-item:hover .v { color: var(--sand); }
   a.footer-meta-item:hover { padding-left: 0; }
   .footer-bottom { align-items: center; text-align: center; }
   .fb-left, .fb-right { justify-content: center; }
+  .fb-right { order: 1; }          /* legal links first… */
+  .fb-left { order: 2; }           /* …© 2026 · Conçu par MouaDev last */
 }

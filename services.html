@@ -434,24 +434,11 @@
       <div class="fb-right">
         <a class="fb-mono footer-legal-link" href="/mentions-legales">Mentions légales</a>
         <a class="fb-mono footer-legal-link" href="/confidentialite">Politique de confidentialité</a>
-        <span class="live-dot" aria-hidden="true"></span>
-        <span class="fb-mono" id="fb-clock">--:--</span>
       </div>
     </div>
   </div>
 </footer>
 
 <script src="site.js?v=20261005"></script>
-<script>
-  (function () {
-    const el = document.getElementById('fb-clock');
-    if (!el) return;
-    const tick = () => {
-      try { el.textContent = new Intl.DateTimeFormat('fr-MA', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Casablanca', timeZoneName: 'shortOffset' }).format(new Date()); }
-      catch (_) { const d = new Date(); el.textContent = String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0'); }
-    };
-    tick(); setInterval(tick, 30000);
-  })();
-</script>
 </body>
 </html>
