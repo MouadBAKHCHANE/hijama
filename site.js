@@ -190,7 +190,7 @@
             <option value="" disabled selected>Choisissez une indication…</option>
             <option>Consultation médicale</option>
             <option>Hijama pour les douleurs dorsales</option>
-            <option>Hijama pour le stress et l'anxiété</option>
+            <option>Hijama pour le stress et l’anxiété</option>
             <option>Hijama pour la perte de poids</option>
             <option>Hijama pour les migraines</option>
             <option>Hijama pour la fertilité</option>
@@ -211,7 +211,7 @@
           </label>
         </div>
         <label class="rdv-field"><span class="rdv-field-label">Message (facultatif)</span><textarea name="message" rows="3" placeholder="Préciser votre motif, antécédents, traitement en cours…"></textarea></label>
-        <div class="rdv-consent"><label><input type="checkbox" required><span>J'accepte d'être recontacté(e) pour confirmer le rendez-vous.</span></label></div>
+        <div class="rdv-consent"><label><input type="checkbox" required><span>J’accepte d’être recontacté(e) pour confirmer le rendez-vous.</span></label></div>
         <button type="submit" class="rdv-submit"><span>Envoyer la demande</span><span class="rdv-arrow" aria-hidden="true">→</span></button>
         <div class="rdv-thanks" role="status">✓ Merci, votre demande est bien reçue. Nous vous recontactons sous 24 h.</div>
       </form>

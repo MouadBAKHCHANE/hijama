@@ -117,7 +117,7 @@
 
 <section class="page-head page-head--compact">
   <div class="container">
-    <nav class="crumbs" aria-label="Fil d'Ariane">
+    <nav class="crumbs" aria-label="Fil d’Ariane">
       <a href="/">Accueil</a>
       <span aria-hidden="true">›</span>
       <span aria-current="page">Contact</span>
@@ -130,7 +130,7 @@
     <div class="section-head">
       <div class="meta">
         <div class="eyebrow"><span>Prise de rendez-vous</span></div>
-        <p class="services-intro reveal">Des créneaux sont généralement disponibles dans la semaine pour votre séance de Hijama médicale à Salé. Le formulaire de réservation est le moyen le plus rapide ; pour une urgence, contactez-nous directement par téléphone.</p>
+        <p class="services-intro reveal">Des créneaux sont généralement disponibles dans la semaine pour votre séance de Hijama médicale à Salé. Le formulaire de réservation est le moyen le plus rapide ; pour une urgence, contactez-nous directement par téléphone.</p>
       </div>
       <h1 class="section-title reveal">Contact et rendez-vous — Cabinet Hijama médicale, Salé (Tabriquet)</h1>
       <h2 class="section-title reveal">Réserver <em>une séance.</em></h2>
@@ -304,7 +304,7 @@
     if (!el) return;
     const tick = () => {
       try {
-        el.textContent = new Intl.DateTimeFormat('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Casablanca' }).format(new Date()) + ' GMT';
+        el.textContent = new Intl.DateTimeFormat('fr-MA', { hour: '2-digit', minute: '2-digit', timeZone: 'Africa/Casablanca', timeZoneName: 'shortOffset' }).format(new Date());
       } catch (_) {
         const d = new Date();
         el.textContent = String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0');
