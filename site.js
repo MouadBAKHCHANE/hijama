@@ -182,7 +182,7 @@
       <span>WhatsApp</span>
     </a>
     </div>
-    <p class="rdv-note" data-rdv-wa-note hidden>Hors horaires d’ouverture : laissez-nous un message, nous vous répondons dès la réouverture.</p>
+    <p class="rdv-note" data-rdv-wa-note hidden>Hors horaires d’ouverture : laissez-nous un message, nous vous répondons dès la réouverture.</p>
   </div>
 </div>`;
       document.body.insertAdjacentHTML('beforeend', html);
